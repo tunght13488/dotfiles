@@ -6,3 +6,4 @@ Tung's dotfiles
     git submodule init
     git submodule update
     stow vim
+    vim +BundleInstall +qall
