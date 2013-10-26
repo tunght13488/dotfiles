@@ -87,3 +87,6 @@ _ide_helper_models.php
 
 # CTags
 tags
+
+# Meteoric
+meteoric.config.sh

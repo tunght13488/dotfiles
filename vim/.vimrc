@@ -36,9 +36,9 @@ set hidden
 " remember more commands and search history
 set history=10000
 set expandtab
-set tabstop=3
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set laststatus=2
 set showmatch
@@ -93,7 +93,7 @@ let mapleader=","
 
 " Don’t add empty newlines at the end of files
 set binary
-set noeol
+" set noeol
 
 " Respect modeline in files
 set modeline
@@ -181,7 +181,11 @@ map <F2> :ls<CR>:b<Space>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set t_Co=256 " 256 colors
-:set background=dark
-:color wombat
+set t_Co=256 " 256 colors
+set background=dark
+colorscheme Tomorrow-Night-Eighties
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
