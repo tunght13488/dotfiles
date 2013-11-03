@@ -123,17 +123,6 @@
 	changed   = yellow bold
 	untracked = red bold
 
-[merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
-	tool = mymeld
-	conflictstyle = diff3
-[mergetool]
-	prompt = false
-	keepBackup = true
-[mergetool "mymeld"]
-	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE $MERGED
-
 [branch]
 	autosetupmerge = true
 
@@ -156,28 +145,46 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-[push]
-	default = simple
-
 # Diff
 [diff]
 	algorithm = patience
-	tool = meld
+	tool = Kaleidoscope
 [difftool]
 	prompt = false
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+	conflictstyle = diff3
+	tool = Kaleidoscope
+[mergetool]
+	prompt = false
+	keepBackup = true
 
 [github]
 	user  = tunght13488
 	token = 26ae3f727a63401c3901e588b1dcf075
+
 [user]
 	name = Ha The Tung
 	email = tunght13488@gmail.com
 	signingkey = 063C4D3F
+
 [help]
 	autocorrect = 1
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
