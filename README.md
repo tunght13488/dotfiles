@@ -5,5 +5,6 @@ Tung's dotfiles
     cd $HOME/dotfiles
     git submodule init
     git submodule update
+    stow git
     stow vim
     vim +BundleInstall +qall
