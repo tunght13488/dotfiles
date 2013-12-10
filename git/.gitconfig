@@ -105,7 +105,7 @@
 	ignorecase = false
 	autocrlf = input
 	#pager = less -x1,5
-	editor = subl -w
+	editor = vim
 
 [pager]
 	log  = diff-highlight | less
