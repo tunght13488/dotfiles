@@ -20,7 +20,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'scrooloose/nerdtree'
 
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'git@github.com:wincent/Command-T.git'
 
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
