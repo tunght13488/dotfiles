@@ -110,7 +110,7 @@ set number
 syntax on
 
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_,precedes:<,extends:>
 set list
 
 " Enable mouse in all modes
@@ -183,9 +183,23 @@ map <F2> :ls<CR>:b<Space>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256 " 256 colors
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
+" Navigate 2x faster when holding down Shift
+nmap <s-j> 2j
+nmap <s-k> 2k
+nmap <s-h> 2h
+nmap <s-l> 2l
+" Navigate 4x faster when holding down Ctrl
+nmap <c-j> 4j
+nmap <c-k> 4k
+nmap <c-h> 4h
+nmap <c-l> 4l

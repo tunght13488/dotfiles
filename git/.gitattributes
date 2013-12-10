@@ -2,13 +2,13 @@
 * text=auto
 * filter=trimWhitespace
 
-# Explicitly declare text files we want to always be normalized and converted
- to native line endings on checkout.
-*.c text
-*.h text
+# Explicitly declare text files we want to always be normalized and converted to native line endings on checkout.
 *.php text
 *.css text
 *.js text
+*.yml text
+*.xml text
+*.twig text
 
 # Declare files that will always have CRLF line endings on checkout.
 #*.sln text eol=crlf
