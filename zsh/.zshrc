@@ -230,7 +230,7 @@ fi
 PROJECT_PATHS=($HOME/Projects)
 
 # Paths
-export PATH=$HOME/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
 
