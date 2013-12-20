@@ -7,4 +7,5 @@ Tung's dotfiles
     git submodule update
     stow git
     stow vim
+    stow zsh
     vim +BundleInstall +qall
