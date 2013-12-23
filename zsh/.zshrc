@@ -9,8 +9,8 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 
 # Example aliases
-alias zshconfig="st $HOME/.zshrc"
-alias ohmyzsh="st $HOME/.oh-my-zsh"
+alias zshconfig="vim $HOME/.zshrc"
+alias ohmyzsh="vim $HOME/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -193,38 +193,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 ################################################################################
-# LIBRARY
-
-# MeRC
-[[ -s $HOME/.merc ]] && . $HOME/.merc
-
-# if [ -f /opt/local/etc/profile.d/autojump.zsh ]; then
-#   . /opt/local/etc/profile.d/autojump.zsh
-# fi
-
-# nvm
-if [[ -s $HOME/.nvm/nvm.sh ]]; then
-  . $HOME/.nvm/nvm.sh
-  alias node='$NVM_BIN/node'
-  alias npm='$NVM_BIN/npm'
-fi
-
-# rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  . $HOME/.rvm/scripts/rvm
-  # export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
-# Autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-# Mark
-[[ -s $HOME/.mark.sh ]] && . $HOME/.mark.sh
-
-# Perlbrew
-[[ -s $HOME/perl5/perlbrew/etc/bashrc ]] && . $HOME/perl5/perlbrew/etc/bashrc
-
-################################################################################
 # VARIABLES
 
 PROJECT_PATHS=($HOME/Projects)
@@ -259,6 +227,38 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Git diff highlight
 export PATH=$PATH:$(brew --prefix git)/share/git-core/contrib/diff-highlight
+
+################################################################################
+# LIBRARY
+
+# MeRC
+[[ -s $HOME/.merc ]] && . $HOME/.merc
+
+# if [ -f /opt/local/etc/profile.d/autojump.zsh ]; then
+#   . /opt/local/etc/profile.d/autojump.zsh
+# fi
+
+# nvm
+if [[ -s $HOME/.nvm/nvm.sh ]]; then
+  . $HOME/.nvm/nvm.sh
+  alias node='$NVM_BIN/node'
+  alias npm='$NVM_BIN/npm'
+fi
+
+# rvm
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+  . $HOME/.rvm/scripts/rvm
+  # export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
+# Autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# Mark
+[[ -s $HOME/.mark.sh ]] && . $HOME/.mark.sh
+
+# Perlbrew
+[[ -s $HOME/perl5/perlbrew/etc/bashrc ]] && . $HOME/perl5/perlbrew/etc/bashrc
 
 ################################################################################
 # ALIAS
