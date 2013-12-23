@@ -42,150 +42,150 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  # ant #
-  # apache2-macports #
-  # archlinux #
-  # autoenv #
-  # autojump
-  # battery #
-  bower
-  brew
-  bundler
-  # bwana #
-  # cabal #
-  # cake #
-  capistrano
-  # celery #
-  # cloudapp #
-  # coffee #
-  # colemak #
-  colored-man
-  # colorize #
-  command-not-found
-  # compleat #
-  composer
-  # copydir #
-  # copyfile #
-  cp
-  # cpanm #
-  # debian #
-  # dircycle #
-  dirpersist
-  # django #
-  # docker #
-  # emoji-clock #
-  encode64
-  extract
-  # fabric #
-  fasd #
-  # fbterm #
-  # forklift #
-  # gas #
-  gem
-  git
-  git-extras
-  git-flow
-  # git-flow-avh #
-  # git-hubflow #
-  # git-remote-branch #
-  # gitfast #
-  # github #
-  gitignore
-  # gnu-utils #
-  # go #
-  # golang #
-  # gpg-agent #
-  # gradle #
-  # grails #
-  heroku
-  history
-  history-substring-search
-  # jake-node #
-  jira
-  # jruby #
-  # jump #
-  # kate #
-  # knife #
-  # knife_ssh #
-  laravel
-  # last-working-dir
-  # lein #
-  # lighthouse #
-  lol
-  # macports #
-  # mercurial #
-  # mix #
-  # mosh #
-  # mvn #
-  # mysql-macports #
-  # nanoc #
-  node
-  npm
-  nvm
-  # nyan #
-  osx
-  pass #
-  # per-directory-history
-  perl
-  # phing #
-  pip
-  # pj #
-  # pod #
-  # postgres #
-  # pow #
-  # powder #
-  # powify #
-  # profiles #
-  python
-  rails #
-  # rails3 #
-  # rails4
-  rake
-  rand-quote
-  rbenv
-  # rbfu #
-  # rebar #
-  redis-cli
-  # repo #
-  rsync
-  ruby
-  rvm
-  safe-paste
-  sbt
-  scala
-  # screen #
-  # sfffe
-  # sprunge #
-  ssh-agent
-  sublime
-  # supervisor #
-  # suse #
-  # svn #
-  # symfony #
-  symfony2
-  # systemd #
-  # taskwarrior #
-  # terminalapp #
-  # terminitor #
-  # textmate #
-  # themes #
-  # thor #
-  # tmux #
-  # tmuxinator #
-  torrent
-  urltools
-  vagrant
-  # vi-mode #
-  # virtualenv #
-  # virtualenvwrapper #
-  vundle #
-  # wakeonlan #
-  # web-search #
-  # yum #
-  # z #
-  # zeus #
-  zsh-history-substring-search
-  zsh-syntax-highlighting
+# ant #
+# apache2-macports #
+# archlinux #
+# autoenv #
+# autojump
+# battery #
+bower
+brew
+bundler
+# bwana #
+# cabal #
+# cake #
+capistrano
+# celery #
+# cloudapp #
+# coffee #
+# colemak #
+colored-man
+# colorize #
+command-not-found
+# compleat #
+composer
+# copydir #
+# copyfile #
+cp
+# cpanm #
+# debian #
+# dircycle #
+dirpersist
+# django #
+# docker #
+# emoji-clock #
+encode64
+extract
+# fabric #
+fasd #
+# fbterm #
+# forklift #
+# gas #
+gem
+git
+git-extras
+git-flow
+# git-flow-avh #
+# git-hubflow #
+# git-remote-branch #
+# gitfast #
+# github #
+gitignore
+# gnu-utils #
+# go #
+# golang #
+# gpg-agent #
+# gradle #
+# grails #
+heroku
+history
+history-substring-search
+# jake-node #
+jira
+# jruby #
+# jump #
+# kate #
+# knife #
+# knife_ssh #
+laravel
+# last-working-dir
+# lein #
+# lighthouse #
+lol
+# macports #
+# mercurial #
+# mix #
+# mosh #
+# mvn #
+# mysql-macports #
+# nanoc #
+node
+npm
+nvm
+# nyan #
+osx
+pass #
+# per-directory-history
+perl
+# phing #
+pip
+# pj #
+# pod #
+# postgres #
+# pow #
+# powder #
+# powify #
+# profiles #
+python
+rails #
+# rails3 #
+# rails4
+rake
+rand-quote
+rbenv
+# rbfu #
+# rebar #
+redis-cli
+# repo #
+rsync
+ruby
+rvm
+safe-paste
+sbt
+scala
+# screen #
+# sfffe
+# sprunge #
+ssh-agent
+sublime
+# supervisor #
+# suse #
+# svn #
+# symfony #
+symfony2
+# systemd #
+# taskwarrior #
+# terminalapp #
+# terminitor #
+# textmate #
+# themes #
+# thor #
+# tmux #
+# tmuxinator #
+torrent
+urltools
+vagrant
+# vi-mode #
+# virtualenv #
+# virtualenvwrapper #
+vundle #
+# wakeonlan #
+# web-search #
+# yum #
+# z #
+# zeus #
+zsh-history-substring-search
+zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -227,38 +227,6 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Git diff highlight
 export PATH=$PATH:$(brew --prefix git)/share/git-core/contrib/diff-highlight
-
-################################################################################
-# LIBRARY
-
-# MeRC
-[[ -s $HOME/.merc ]] && . $HOME/.merc
-
-# if [ -f /opt/local/etc/profile.d/autojump.zsh ]; then
-#   . /opt/local/etc/profile.d/autojump.zsh
-# fi
-
-# nvm
-if [[ -s $HOME/.nvm/nvm.sh ]]; then
-  . $HOME/.nvm/nvm.sh
-  alias node='$NVM_BIN/node'
-  alias npm='$NVM_BIN/npm'
-fi
-
-# rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  . $HOME/.rvm/scripts/rvm
-  # export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
-# Autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-# Mark
-[[ -s $HOME/.mark.sh ]] && . $HOME/.mark.sh
-
-# Perlbrew
-[[ -s $HOME/perl5/perlbrew/etc/bashrc ]] && . $HOME/perl5/perlbrew/etc/bashrc
 
 ################################################################################
 # ALIAS
@@ -312,3 +280,36 @@ bindkey -M emacs '^N' history-substring-search-down
 # bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+################################################################################
+# LIBRARY
+
+# MeRC
+[[ -s $HOME/.merc ]] && . $HOME/.merc
+
+# if [ -f /opt/local/etc/profile.d/autojump.zsh ]; then
+#   . /opt/local/etc/profile.d/autojump.zsh
+# fi
+
+# nvm
+if [[ -s $HOME/.nvm/nvm.sh ]]; then
+	. $HOME/.nvm/nvm.sh
+	alias node='$NVM_BIN/node'
+	alias npm='$NVM_BIN/npm'
+fi
+
+# rvm
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+	. $HOME/.rvm/scripts/rvm
+	# export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
+# Autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# Mark
+[[ -s $HOME/.mark.sh ]] && . $HOME/.mark.sh
+
+# Perlbrew
+[[ -s $HOME/perl5/perlbrew/etc/bashrc ]] && . $HOME/perl5/perlbrew/etc/bashrc
+
