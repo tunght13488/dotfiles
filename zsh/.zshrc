@@ -5,8 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in $HOME/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="ys"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="ys"
 
 # Example aliases
 alias zshconfig="vim $HOME/.zshrc"
@@ -50,7 +50,7 @@ plugins=(
 # battery #
 bower
 brew
-bundler
+# bundler
 # bwana #
 # cabal #
 # cake #
@@ -111,7 +111,7 @@ laravel
 # last-working-dir
 # lein #
 # lighthouse #
-lol
+# lol
 # macports #
 # mercurial #
 # mix #
@@ -125,7 +125,7 @@ nvm
 # nyan #
 osx
 pass #
-# per-directory-history
+per-directory-history
 perl
 # phing #
 pip
@@ -184,7 +184,7 @@ vundle #
 # yum #
 # z #
 # zeus #
-zsh-history-substring-search
+# zsh-history-substring-search
 zsh-syntax-highlighting
 )
 
@@ -192,13 +192,19 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+# Online help
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
 ################################################################################
 # VARIABLES
 
 PROJECT_PATHS=($HOME/Projects)
 
 # Paths
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
 
@@ -231,8 +237,12 @@ export PATH=$PATH:$(brew --prefix git)/share/git-core/contrib/diff-highlight
 ################################################################################
 # ALIAS
 
+# MacVim
+# alias vim='mvim -v'
+
 # Sublime
 alias st='$HOME/bin/subl'
+alias todo='st $HOME/my.todo'
 
 # Laravel
 alias lv="artisan"
@@ -246,6 +256,7 @@ alias gfh='git fetch --verbose --prune'
 alias grb='git rebase --verbose'
 alias gcb='git checkout -b'
 alias gbu='git branch --set-upstream-to'
+alias gap='git add -p'
 
 # History
 alias h?="history | grep"
@@ -259,6 +270,48 @@ alias ds='fasd -sid'     # interactive directory selection
 alias fs='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
+
+# chmod
+alias mx='chmod a+x'
+alias 000='chmod 000'
+alias 400='chmod 400'
+alias 644='chmod 644'
+alias 755='chmod 755'
+
+# Program
+alias chrome='open -a "Google Chrome"'
+alias makepass='openssl rand -base64 32'
+
+# Random
+alias please="sudo !!"
+alias hosts='sudo $EDITOR /etc/hosts'
+alias sshconfig='$EDITOR ~/.ssh/config'
+alias currentwifi="networksetup -getairportnetwork en1"
+alias stfu="osascript -e 'set volume output muted true'"
+alias vol10="osascript -e 'set volume 10'"
+alias vol5="osascript -e 'set volume 5'"
+alias week='date +%V'
+
+# IP
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+.\d+.\d+.\d+)/ && print $1'"
+
+# Whois
+alias whois="whois -h whois-servers.net"
+
+# Flushcache
+alias flush="dscacheutil -flushcache"
+
+# Clean up
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# Show/hide desktop icon
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # ls
 # alias l='ls -alh'
@@ -313,3 +366,5 @@ fi
 # Perlbrew
 [[ -s $HOME/perl5/perlbrew/etc/bashrc ]] && . $HOME/perl5/perlbrew/etc/bashrc
 
+# Wordpress
+# [[ -s $HOME/wp-completion.bash ]] && . $HOME/wp-completion.bash

@@ -32,6 +32,7 @@
 	ci          = commit
 	cl          = clone
 	co          = checkout
+	rev         = merge --no-ff --no-commit
 	cp          = cherry-pick
 	dc          = diff --cached
 	df          = diff
@@ -87,7 +88,7 @@
 	svnl        = svn log --oneline --show-commit
 	svnr        = svn rebase
 	theirs      = "!f() { git checkout --theirs $@ && git add $@; }; f"
-	today       = "log --since=midnight --author='Ha The Tung' --oneline"
+	today = log --since=midnight --author='Ha The Tung' --oneline
 	type        = cat-file -t
 	unassume    = update-index --no-assume-unchanged
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
@@ -182,7 +183,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

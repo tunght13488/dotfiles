@@ -90,3 +90,27 @@ tags
 
 # Meteoric
 meteoric.config.sh
+
+# CommerceBug
+magento/app/code/local/Opencommercellc/
+magento/app/etc/modules/Opencommercellc_Commercebug.xml
+magento/js/commercebug/
+app/code/local/Opencommercellc/
+app/etc/modules/Opencommercellc_Commercebug.xml
+js/commercebug/
+
+# Magento QConfig
+app/code/community/Treynolds/
+app/design/adminhtml/default/default/layout/treynolds/
+app/design/adminhtml/default/default/template/treynolds/
+app/etc/modules/Treynolds_Qconfig.xml
+js/treynolds/
+skin/adminhtml/base/default/treynolds/ajax-loader.gif
+skin/adminhtml/base/default/treynolds/qconfig.css
+
+# n98 magerun
+mage.phar
+magento/mage.phar
+
+# atom project
+*.cson

@@ -1,14 +1,16 @@
 # Set default behaviour, in case users don't have core.autocrlf set.
-* text=auto
-* filter=trimWhitespace
+# * text=auto
+#* filter=trimWhitespace
 
 # Explicitly declare text files we want to always be normalized and converted to native line endings on checkout.
-*.php text
-*.css text
-*.js text
-*.yml text
-*.xml text
-*.twig text
+#*.php text
+#*.css text
+#*.js text
+#*.yml text
+#*.xml text
+#*.twig text
+#*.scss text
+#*.sass text
 
 # Declare files that will always have CRLF line endings on checkout.
 #*.sln text eol=crlf
