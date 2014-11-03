@@ -43,6 +43,7 @@ Desktop.ini
 *.onetoc2
 *~
 ~$*
+*#
 
 # Sublime Text 2 files #
 ########################
@@ -91,13 +92,17 @@ tags
 # Meteoric
 meteoric.config.sh
 
-# CommerceBug
-magento/app/code/local/Opencommercellc/
-magento/app/etc/modules/Opencommercellc_Commercebug.xml
-magento/js/commercebug/
+# n98-magerun
+mage.phar
+
+# Magento CommerceBug
 app/code/local/Opencommercellc/
 app/etc/modules/Opencommercellc_Commercebug.xml
 js/commercebug/
+# Magento CommerceBug nested
+*/app/code/local/Opencommercellc/
+*/app/etc/modules/Opencommercellc_Commercebug.xml
+*/js/commercebug/
 
 # Magento QConfig
 app/code/community/Treynolds/
@@ -105,12 +110,15 @@ app/design/adminhtml/default/default/layout/treynolds/
 app/design/adminhtml/default/default/template/treynolds/
 app/etc/modules/Treynolds_Qconfig.xml
 js/treynolds/
-skin/adminhtml/base/default/treynolds/ajax-loader.gif
-skin/adminhtml/base/default/treynolds/qconfig.css
+skin/adminhtml/base/default/treynolds/
 
-# n98 magerun
-mage.phar
-magento/mage.phar
+magento/app/code/community/Treynolds/
+magento/app/design/adminhtml/default/default/layout/treynolds/
+magento/app/design/adminhtml/default/default/template/treynolds/
+magento/app/etc/modules/Treynolds_Qconfig.xml
+magento/js/treynolds/
+#magento/skin/adminhtml/base/
+magento/skin/adminhtml/base/default/treynolds/ajax-loader.gif
 
-# atom project
-*.cson
+# IDE helper
+_ide_helper.php
