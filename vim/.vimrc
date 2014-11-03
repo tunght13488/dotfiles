@@ -98,9 +98,15 @@ set number
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
+
 if has("gui_running")
-    " colorscheme mustang
-    set guifont=Menlo:h12
+    if has("unix")
+        let s:uname = system("uname -s")
+        if s:uname == "Darwin"
+            " colorscheme mustang
+            set guifont=Meslo:h12
+        endif
+    endif
 endif
 set background=dark
 colorscheme base16-railscasts
