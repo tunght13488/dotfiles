@@ -104,7 +104,7 @@ if has("gui_running")
         let s:uname = system("uname -s")
         if s:uname == "Darwin"
             " colorscheme mustang
-            set guifont=Meslo:h12
+            set guifont=Meslo:h13
         endif
     endif
 endif
@@ -269,7 +269,7 @@ let g:syntastic_php_checkers = ['php']
 " END Syntastic
 " ==============================================================================
 " BEGIN Powerline
-" let g:Powerline_symbols='unicode'
+" let g:Powerline_symbols='fancy'
 let g:Powerline_stl_path_style='short'
 " END Powerline
 " ==============================================================================
