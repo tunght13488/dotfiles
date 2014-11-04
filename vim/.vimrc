@@ -98,15 +98,8 @@ set number
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
-
-if has("gui_running")
-    if has("unix")
-        let s:uname = system("uname -s")
-        if s:uname == "Darwin"
-            " colorscheme mustang
-            set guifont=Meslo:h13
-        endif
-    endif
+if has("gui_macvim")
+    set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h13
 endif
 set background=dark
 colorscheme base16-railscasts
