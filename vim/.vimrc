@@ -45,6 +45,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
+Plugin 'terryma/vim-multiple-cursors'
 " END Plugin
 " ==============================================================================
 " All of your Plugins must be added before the following line
@@ -318,3 +319,23 @@ let g:bookmark_auto_close=1
 " BEGIN vim-gitgutter
 
 " END vim-gitgutter
+" ==============================================================================
+" BEGIN supertab
+
+" END supertab
+" ==============================================================================
+" BEGIN delimitMate
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+imap <expr> <cr> pumvisible()
+            \ ? "\<C-Y>"
+            \ : "<Plug>delimitMateCR"
+" END delimitMate
+" ==============================================================================
+" BEGIN terryma/vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<c-d>'
+let g:multi_cursor_prev_key='<C-D>'
+" let g:multi_cursor_skip_key=<c-x>
+let g:multi_cursor_quit_key='<ESC>'
+" END terryma/vim-multiple-cursors
