@@ -104,7 +104,7 @@
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = fix,space-before-tab,trailing-space,cr-at-eol
 	ignorecase = false
-	autocrlf = input
+	autocrlf = false
 	#pager = less -x1,5
 	editor = vim
 
@@ -183,7 +183,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -201,3 +201,7 @@
 [mergetool "sublime"]
 	cmd = subl -w \"$MERGED\"
 	trustexitcode = false
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
