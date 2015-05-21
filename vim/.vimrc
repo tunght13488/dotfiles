@@ -196,7 +196,6 @@ set wildmode=list:longest
 set cursorline
 set ttyfast
 set relativenumber
-set undofile
 au FocusLost * :wa
 " ================
 " KEY MAPPING
