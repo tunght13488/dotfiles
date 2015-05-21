@@ -8,4 +8,5 @@ Tung's dotfiles
     stow git
     stow vim
     stow zsh
+    stow tmux
     vim +BundleInstall +qall
