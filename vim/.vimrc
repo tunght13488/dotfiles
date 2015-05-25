@@ -32,7 +32,8 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hukl/Smyck-Color-Scheme'
 Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'StanAngeloff/php.vim'
@@ -77,7 +78,7 @@ set directory=$HOME/.vim/tmp/swap " where to store swap
 silent execute '!mkdir -p $HOME/.vim/tmp/views'
 set viewdir=$HOME/.vim/tmp/views " where to store view
 silent execute '!mkdir -p $HOME/.vim/tmp/undo'
-set undodir=$HOME/.vim/tmp/undo " where to store undo 
+set undodir=$HOME/.vim/tmp/undo " where to store undo
 
 " syntax
 syntax on
