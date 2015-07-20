@@ -12,44 +12,43 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " ==============================================================================
 " BEGIN Plugin
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/The-NERD-tree'
-Plugin 'mileszs/ack.vim'
-Plugin 'tyok/nerdtree-ack'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-markdown'
-Plugin 'rstacruz/sparkup'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'croaker/mustang-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-abolish'
-" Plugin 'vim-scripts/YankRing.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'hukl/Smyck-Color-Scheme'
-Plugin 'scrooloose/syntastic'
-" Plugin 'powerline/powerline'
-Plugin 'bling/vim-airline'
-Plugin 'vim-scripts/closetag.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'chrishunt/color-schemes'
-Plugin 'joonty/vim-sauce'
-Plugin 'roblillack/vim-bufferlist'
-Plugin 'ervandew/supertab'
-Plugin 'Raimondi/delimitMate'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'godlygeek/tabular'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin '29decibel/codeschool-vim-theme'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'chrishunt/color-schemes'
+Plugin 'croaker/mustang-vim'
+Plugin 'ervandew/supertab'
+Plugin 'garbas/vim-snipmate'
+Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
+Plugin 'hukl/Smyck-Color-Scheme'
+Plugin 'joonty/vim-sauce'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'majutsushi/tagbar'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'mattn/emmet-vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Raimondi/delimitMate'
+Plugin 'roblillack/vim-bufferlist'
+Plugin 'rstacruz/sparkup'
+Plugin 'scrooloose/syntastic'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
-
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tyok/nerdtree-ack'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'vim-scripts/The-NERD-tree'
 " END Plugin
 " ==============================================================================
 " All of your Plugins must be added before the following line
@@ -87,8 +86,6 @@ set undodir=$HOME/.vim/tmp/undo " where to store undo
 syntax on
 " filetype
 filetype on
-" filetype indent on
-" filetype plugin on
 
 " tabstop
 set tabstop=4
@@ -155,6 +152,9 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 set laststatus=2
 " set statusline=%f\ %=%{fugitive#statusline()}L:%l/%L\ %c\ (%p%%)
 set guioptions-=T
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 set encoding=utf-8
 set autoread
 if has('autocmd')
@@ -213,7 +213,7 @@ noremap <leader>n <C-w>v<C-w>1
 inoremap jj <ESC>
 " END VIM
 " ==============================================================================
-" BEGIN CtrP
+" BEGIN CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
@@ -236,7 +236,7 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_dotfiles=0
 let g:ctrlp_switch_buffer=0
 nnoremap <leader>. :CtrlPTag<cr>
-" END CtrP
+" END CtrlP
 " ==============================================================================
 " BEGIN NERDTree
 map <c-n> :NERDTreeToggle<CR>
