@@ -197,7 +197,7 @@
 [rerere]
 	enabled = true
 [credential]
-	helper = osxkeychain
+    # helper = osxkeychain
 [mergetool "sublime"]
 	cmd = subl -w \"$MERGED\"
 	trustexitcode = false

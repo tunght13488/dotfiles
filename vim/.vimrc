@@ -32,7 +32,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hukl/Smyck-Color-Scheme'
 Plugin 'scrooloose/syntastic'
-" Plugin 'Lokaltog/vim-powerline'
+" Plugin 'powerline/powerline'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'Lokaltog/vim-easymotion'
@@ -47,6 +47,9 @@ Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin '29decibel/codeschool-vim-theme'
+Plugin 'tomasr/molokai'
+
 " END Plugin
 " ==============================================================================
 " All of your Plugins must be added before the following line
@@ -104,7 +107,7 @@ if has("gui_macvim")
     set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h13
 endif
 set background=dark
-colorscheme base16-railscasts
+colorscheme molokai
 
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
@@ -237,6 +240,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 " ==============================================================================
 " BEGIN NERDTree
 map <c-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
 if has('autocmd')
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -264,7 +268,8 @@ let g:syntastic_php_checkers = ['php']
 " ==============================================================================
 " BEGIN Powerline
 " let g:Powerline_symbols='fancy'
-let g:Powerline_stl_path_style='short'
+" let g:Powerline_stl_path_style='short'
+let g:airline_powerline_fonts = 1
 " END Powerline
 " ==============================================================================
 " BEGIN EasyMotion
