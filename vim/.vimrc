@@ -46,7 +46,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tyok/nerdtree-ack'
+" Plugin 'tyok/nerdtree-ack'
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 " END Plugin
