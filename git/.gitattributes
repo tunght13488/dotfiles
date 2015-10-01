@@ -21,3 +21,5 @@
 *.gif binary
 *.ico binary
 *.gz binary
+
+*.pdf binary

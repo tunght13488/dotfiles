@@ -49,6 +49,9 @@ Plugin 'tpope/vim-surround'
 " Plugin 'tyok/nerdtree-ack'
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 " END Plugin
 " ==============================================================================
 " All of your Plugins must be added before the following line
@@ -224,7 +227,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe	" Windows
 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-            \ 'dir':	'\v[\/]\.(git|hg|svn|idea|sass-cache)$',
+            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components)$',
             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
             \ }
 
@@ -344,3 +347,8 @@ let g:multi_cursor_prev_key='<C-D>'
 " let g:multi_cursor_skip_key=<c-x>
 let g:multi_cursor_quit_key='<ESC>'
 " END terryma/vim-multiple-cursors
+" BEGIN maksimr/vim-jsbeautify
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" END maksimr/vim-jsbeautify
