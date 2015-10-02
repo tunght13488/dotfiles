@@ -52,6 +52,7 @@ Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+Plugin 'Valloric/YouCompleteMe'
 " END Plugin
 " ==============================================================================
 " All of your Plugins must be added before the following line
@@ -227,7 +228,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe	" Windows
 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components)$',
+            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components|cache|log|logs|generation|page_cache|session|composer_home|view_preprocessed)$',
             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
             \ }
 
@@ -244,6 +245,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 " BEGIN NERDTree
 map <c-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinSize = 30
 if has('autocmd')
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -306,6 +308,8 @@ augroup END
 " ==============================================================================
 " BEGIN TagBar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_left = 1
+let g:tagbar_width = 30
 " END TagBar
 " ==============================================================================
 " BEGIN bufferlist
@@ -355,3 +359,7 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " END maksimr/vim-jsbeautify
+" BEGIN Valloric/YouCompleteMe
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+" END Valloric/YouCompleteMe
