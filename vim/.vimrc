@@ -10,6 +10,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
 " ==============================================================================
 " BEGIN Plugin
 Plugin '29decibel/codeschool-vim-theme'
@@ -37,7 +38,7 @@ Plugin 'roblillack/vim-bufferlist'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-abolish'
@@ -53,7 +54,9 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'wesQ3/vim-windowswap'
 " END Plugin
+
 " ==============================================================================
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,6 +72,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
 " ==============================================================================
 " BEGIN VIM
 set modelines=0
@@ -205,6 +209,8 @@ set cursorline
 set ttyfast
 set relativenumber
 au FocusLost * :wa
+" set spell spellang=en_us
+
 " ================
 " KEY MAPPING
 " vimrc
@@ -214,8 +220,9 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " New vSplit
 noremap <leader>n <C-w>v<C-w>1
-inoremap jj <ESC>
+inoremap jk <ESC>
 " END VIM
+
 " ==============================================================================
 " BEGIN CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -234,13 +241,14 @@ let g:ctrlp_custom_ignore = {
 
 " let g:ctrlp_user_command = 'find %s -type f'	" MacOSX/Linux
 let g:ctrlp_show_hidden=1
-let g:ctrlp_max_height=30
+let g:ctrlp_max_height=15
 let g:ctrlp_match_window_bottom=0
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_dotfiles=0
 let g:ctrlp_switch_buffer=0
 nnoremap <leader>. :CtrlPTag<cr>
 " END CtrlP
+
 " ==============================================================================
 " BEGIN NERDTree
 map <c-n> :NERDTreeToggle<CR>
@@ -252,30 +260,36 @@ if has('autocmd')
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 " END NERDTree
+
 " ==============================================================================
 " BEGIN Ack
 nnoremap <leader>a :Ack
 " END Ack
+
 " ==============================================================================
 " BEGIN Commentary
 if has('autocmd')
     autocmd FileType apache set commentstring=#\ %s
 endif
 " END Commentary
+
 " ==============================================================================
 " BEGIN YankRing
 " nnoremap <silent> <F11> :YRShow<CR>
 " END YankRing
+
 " ==============================================================================
 " BEGIN Syntastic
 let g:syntastic_php_checkers = ['php']
 " END Syntastic
+
 " ==============================================================================
 " BEGIN Powerline
 " let g:Powerline_symbols='fancy'
 " let g:Powerline_stl_path_style='short'
 let g:airline_powerline_fonts = 1
 " END Powerline
+
 " ==============================================================================
 " BEGIN EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
@@ -292,6 +306,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline=0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase=1
 " END EasyMotion
+
 " ==============================================================================
 " BEGIN php.vim
 function! PhpSyntaxOverride()
@@ -305,12 +320,14 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 " END php.vim
+
 " ==============================================================================
 " BEGIN TagBar
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 " END TagBar
+
 " ==============================================================================
 " BEGIN bufferlist
 map <silent> <F2> :call BufferList()<CR>
@@ -319,22 +336,26 @@ let g:BufferListMaxWidth=50
 hi BufferSelected term=reverse ctermfg=white ctermbg=red cterm=bold
 hi BufferNormal term=NONE ctermfg=black ctermbg=darkcyan cterm=NONE
 " END bufferlist
+
 " ==============================================================================
 " BEGIN vim-bookmarks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
-" let g:bookmark_sign = '♥'
+let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines=1
 let g:bookmark_auto_close=1
 " END vim-bookmarks
+
 " ==============================================================================
 " BEGIN vim-gitgutter
 
 " END vim-gitgutter
+
 " ==============================================================================
 " BEGIN supertab
 
 " END supertab
+
 " ==============================================================================
 " BEGIN delimitMate
 let g:delimitMate_expand_cr=1
@@ -343,6 +364,7 @@ imap <expr> <cr> pumvisible()
             \ ? "\<C-Y>"
             \ : "<Plug>delimitMateCR"
 " END delimitMate
+
 " ==============================================================================
 " BEGIN terryma/vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
@@ -351,6 +373,8 @@ let g:multi_cursor_prev_key='<C-D>'
 " let g:multi_cursor_skip_key=<c-x>
 let g:multi_cursor_quit_key='<ESC>'
 " END terryma/vim-multiple-cursors
+
+" ==============================================================================
 " BEGIN maksimr/vim-jsbeautify
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
@@ -359,7 +383,17 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " END maksimr/vim-jsbeautify
+
+" ==============================================================================
 " BEGIN Valloric/YouCompleteMe
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 " END Valloric/YouCompleteMe
+
+" ==============================================================================
+" BEGIN wesQ3/vim-windowswap
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+" END wesQ3/vim-windowswap
