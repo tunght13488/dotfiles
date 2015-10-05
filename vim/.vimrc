@@ -235,7 +235,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe	" Windows
 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components|cache|log|logs|generation|page_cache|session|composer_home|view_preprocessed)$',
+            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components|cache|log|logs|generation|page_cache|session|composer_home|view_preprocessed|dist)$',
             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
             \ }
 
