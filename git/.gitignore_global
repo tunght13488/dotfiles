@@ -85,6 +85,7 @@ deploy.rb
 # Laravel IDE helper
 _ide_helper.php
 _ide_helper_models.php
+.phpstorm.meta.php
 
 # CTags
 tags
