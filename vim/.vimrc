@@ -55,6 +55,7 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'stephpy/vim-php-cs-fixer'
 " END Plugin
 
 " ==============================================================================

@@ -85,6 +85,7 @@ deploy.rb
 # Laravel IDE helper
 _ide_helper.php
 _ide_helper_models.php
+.phpstorm.meta.php
 
 # CTags
 tags
@@ -120,5 +121,5 @@ magento/js/treynolds/
 #magento/skin/adminhtml/base/
 magento/skin/adminhtml/base/default/treynolds/ajax-loader.gif
 
-# IDE helper
-_ide_helper.php
+# Adminer
+adminer.php
