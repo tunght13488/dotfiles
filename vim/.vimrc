@@ -84,20 +84,20 @@ set background=dark
 colorscheme molokai
 syntax enable   " enable syntax processing
 
-" highlight clear SignColumn
-" highlight VertSplit    ctermbg=236
-" highlight ColorColumn  ctermbg=237
-" highlight LineNr       ctermbg=236 ctermfg=240
-" highlight CursorLineNr ctermbg=236 ctermfg=240
-" highlight CursorLine   ctermbg=236
-" highlight StatusLineNC ctermbg=238 ctermfg=0
-" highlight StatusLine   ctermbg=240 ctermfg=12
-" highlight IncSearch    ctermbg=3   ctermfg=1
-" highlight Search       ctermbg=1   ctermfg=3
-" highlight Visual       ctermbg=3   ctermfg=0
-" highlight Pmenu        ctermbg=240 ctermfg=12
-" highlight PmenuSel     ctermbg=3   ctermfg=1
-" highlight SpellBad     ctermbg=0   ctermfg=1
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per tab
@@ -230,7 +230,7 @@ let g:ctrlp_custom_ignore = {
             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
             \ }
 let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
-let g:ctrlp_lazy_update = 1
+" let g:ctrlp_lazy_update = 1
 nnoremap <leader>. :CtrlPTag<cr>
 " }}}
 " Tmux {{{
