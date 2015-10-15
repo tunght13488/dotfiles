@@ -54,6 +54,7 @@ Plugin 'einars/js-beautify'
 " Plugin 'wesQ3/vim-windowswap'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'sjl/gundo.vim'
+Plugin 'sjl/badwolf'
 " }}}
 " Vundle Post-Setup {{{
 " All of your Plugins must be added before the following line
@@ -81,7 +82,8 @@ if has("gui_macvim")
 endif
 set background=dark
 
-colorscheme molokai
+" colorscheme molokai
+colorscheme badwolf
 syntax enable   " enable syntax processing
 
 highlight clear SignColumn
