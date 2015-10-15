@@ -8,7 +8,6 @@ git submodule init
 git submodule update
 stow git
 stow vim
-stow zsh
 stow tmux
 stow other
 vim +BundleInstall +qall
