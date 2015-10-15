@@ -78,7 +78,7 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 if has("gui_macvim")
     " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
-    set guifont=Inconsolata-dz\ for\ Powerline:h12
+    set guifont=Inconsolata-dz\ for\ Powerline:h11
 endif
 set background=dark
 
