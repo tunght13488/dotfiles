@@ -7,7 +7,7 @@ root = true
 ; The default is taken from the lib folder inside the folder extension.
 path = ~/.vim/bundle/js-beautify/js/lib/beautify.js
 ; Javascript interpreter to be invoked by default 'node'
-bin = node
+bin = /Users/rocco/.nvm/v5.4.0/bin/node
 indent_style = space
 indent_size = 2
 
