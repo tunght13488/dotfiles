@@ -110,8 +110,8 @@
 
 [pager]
 	log  = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal

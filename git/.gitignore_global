@@ -2,6 +2,10 @@
 # #####
 .git
 
+# KDE #
+#######
+.directory
+
 # Compiled source #
 ###################
 *.com
