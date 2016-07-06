@@ -12,10 +12,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " }}}
 " Vundle Plugins {{{
+
 " Plugin '29decibel/codeschool-vim-theme'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
 " Plugin 'chrishunt/color-schemes'
 " Plugin 'croaker/mustang-vim'
 " Plugin 'ervandew/supertab'
@@ -55,6 +56,7 @@ Plugin 'einars/js-beautify'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'sjl/gundo.vim'
 Plugin 'sjl/badwolf'
+
 " }}}
 " Vundle Post-Setup {{{
 " All of your Plugins must be added before the following line
@@ -352,7 +354,11 @@ let g:syntastic_filetype_map = {}
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " }}}
 " Powerline {{{
-let g:airline_powerline_fonts = 1   " populate airline symbols with Powerline
+" let g:airline_powerline_fonts = 1   " populate airline symbols with Powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set rtp+=/home/rocco/.local/lib/python3.5/site-packages/powerline/bindings/vim
 " }}}
 " EasyMotion {{{
 map <Leader> <Plug>(easymotion-prefix)
