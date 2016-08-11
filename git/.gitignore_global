@@ -83,8 +83,8 @@ atlassian-ide-plugin.xml
 
 # Capifony #
 ############
-Capfile
-deploy.rb
+# Capfile
+# deploy.rb
 
 # Vagrant #
 ###########
