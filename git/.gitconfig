@@ -92,6 +92,8 @@
 	type        = cat-file -t
 	unassume    = update-index --no-assume-unchanged
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	up = pull --rebase --autostash
+	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 
 [apply]
 	# Detect whitespace errors when applying a patch
