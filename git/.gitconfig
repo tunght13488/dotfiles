@@ -111,7 +111,7 @@
 	editor = vim
 
 [pager]
-	log  = diff-highlight | less
+	log  = diff-so-fancy | less
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 
