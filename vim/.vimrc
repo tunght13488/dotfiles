@@ -356,9 +356,9 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " }}}
 " Powerline {{{
 " let g:airline_powerline_fonts = 1   " populate airline symbols with Powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+" python3 from powerline.vim import setup as powerline_setup
+" python3 powerline_setup()
+" python3 del powerline_setup
 set rtp+=$HOME/.local/lib/python3.5/site-packages/powerline/bindings/vim
 " }}}
 " EasyMotion {{{
