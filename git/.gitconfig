@@ -88,12 +88,12 @@
 	svnl        = svn log --oneline --show-commit
 	svnr        = svn rebase
 	theirs      = "!f() { git checkout --theirs $@ && git add $@; }; f"
-	today = log --since=midnight --author='Ha The Tung' --oneline
+	today       = log --since=midnight --author='Ha The Tung' --oneline
 	type        = cat-file -t
 	unassume    = update-index --no-assume-unchanged
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
-	up = pull --rebase --autostash
-	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+	up          = pull --rebase --autostash
+	undo        = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -111,7 +111,7 @@
 	editor = vim
 
 [pager]
-	log  = diff-so-fancy | less
+	log  = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 
@@ -200,7 +200,9 @@
 [rerere]
 	enabled = true
 [credential]
-    # helper = osxkeychain
+	; helper = !aws codecommit credential-helper $@
+	; UseHttpPath = true
+	helper = osxkeychain
 [mergetool "sublime"]
 	cmd = subl -w \"$MERGED\"
 	trustexitcode = false
@@ -208,5 +210,3 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
-[credential]
-	helper = cache

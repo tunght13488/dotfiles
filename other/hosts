@@ -1,0 +1,19 @@
+# Server
+128.199.253.120 axiom
+128.199.143.206 nexus
+159.203.249.107 zerouv
+188.166.185.180 tunght.com vpn.tunght.com
+
+# PrismDM
+10.128.128.18 git-master.prism-dm.co.uk
+10.128.192.27 lcm-magento.prism-servers.co.uk
+10.128.192.22 mag-es-qa-pim-1.prism-servers.co.uk
+10.128.128.71 sftp.prism-servers.co.uk
+10.128.149.13 sip.prism-servers.co.uk
+10.128.192.27 www.babyandfamilystore.co.uk
+
+# Lotte
+52.77.69.108 varnish.staging.lotte.vn
+52.77.98.104 kibana.lotte.vn
+54.251.148.62 staging.lotte.vn
+52.77.98.104 varnish.lotte.vn
