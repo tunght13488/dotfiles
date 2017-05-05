@@ -131,3 +131,6 @@ magento/skin/adminhtml/base/default/treynolds/ajax-loader.gif
 
 # Adminer
 adminer.php
+
+# VS Code
+.vscode

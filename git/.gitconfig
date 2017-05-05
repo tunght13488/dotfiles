@@ -106,7 +106,7 @@
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = fix,space-before-tab,trailing-space,cr-at-eol
 	ignorecase = false
-	autocrlf = false
+	autocrlf = input
 	#pager = less -x1,5
 	editor = vim
 
