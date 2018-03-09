@@ -16,7 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin '29decibel/codeschool-vim-theme'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'altercation/vim-colors-solarized'
-" Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'chrishunt/color-schemes'
 " Plugin 'croaker/mustang-vim'
 " Plugin 'ervandew/supertab'
@@ -26,6 +27,8 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'hukl/Smyck-Color-Scheme'
 " Plugin 'joonty/vim-sauce'
 "Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'majutsushi/tagbar'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -35,28 +38,31 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'pangloss/vim-javascript'
 "Plugin 'Raimondi/delimitMate'
 "Plugin 'roblillack/vim-bufferlist'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 "Plugin 'StanAngeloff/php.vim'
 " Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'tomasr/molokai'
 " Plugin 'tomtom/tlib_vim'
 " Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-repeat'
 "Plugin 'tpope/vim-surround'
 " Plugin 'docunext/closetag.vim'
 Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'editorconfig/editorconfig-vim'
 "Plugin 'maksimr/vim-jsbeautify'
 "Plugin 'einars/js-beautify'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'wesQ3/vim-windowswap'
 "Plugin 'stephpy/vim-php-cs-fixer'
 "Plugin 'sjl/gundo.vim'
 Plugin 'sjl/badwolf'
 " Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf.vim'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -122,49 +128,72 @@ set tabstop=4       " number of visual spaces per tab
 set softtabstop=4   " number of spaces tab will be translated to
 set expandtab       " tabs are spaces
 set shiftwidth=0    " indent by tapstop
-" set smarttab        " insert space in front of a line follow shiftwidth
-" set shiftround      " round indent to multiple of shiftwidth
-" set autoindent      " copy indent from current line for new line
-" set copyindent      " use existing indent chars
+set smarttab        " insert space in front of a line follow shiftwidth
+set shiftround      " round indent to multiple of shiftwidth
+set autoindent      " copy indent from current line for new line
+set copyindent      " use existing indent chars
 set backspace=indent,eol,start  " backspace over indentation, end of line, and start of insert
 set list listchars=eol:¬,tab:>-,trail:.,extends:>,precedes:<,nbsp:% " show whitespaces
 " }}}
 " UI {{{
-if has("gui_macvim")
-    " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
-    set guifont=Inconsolata-dz\ for\ Powerline:h12
+if has("gui_running")
+    " fonts
+    if has("gui_macvim")
+        " set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12
+        set guifont=Inconsolata-dz\ for\ Powerline:h12
+    elseif has("gui_gtk")
+        set guifont=Inconsolata-dz\ Medium\ 12
+    elseif has("gui_win32")
+        set guifont=Consolas:h11:cANSI
+    endif
+    " sizes
+    set lines=999 columns=999
 endif
-set number                  " show linenumbers
-set relativenumber          " use relative number
-set showcmd                 " show command in bottom bar
-set cursorline              " highlight current line
-set wildmenu                " visual autocomplete for command menu
-set wildmode=list:longest   " list all match, complete till longest common string
-set lazyredraw              " redraw only when we need to
-set showmatch               " highlight matching bracklets
-set wrap                    " wrap text inside window
-" set textwidth=79            " max width to insert
-set textwidth=0             " disable auto break to new line
-set formatoptions=qr1       " automatic format
-                            " q = format comment with "gq"
-                            " r = automatically insert comment leader after <ENTER> in INSERT mode
-                           " 1 = don't break line after one-letter word
-set colorcolumn=80,120,150  " highlighted columns
-set ruler                   " line and column of current cursor
-set hidden                  " hide the buffer when it's abandoned
-set scrolloff=3             " min lines above and below cursor
-set fillchars+=stl:\ ,stlnc:\
-set laststatus=2
-" set guioptions-=T           " remove toolbar
-" set guioptions-=r           " removes right hand scroll bar
-" removes left hand scroll bar (when there's vertically split window
-" set guioptions-=L
-set cpoptions+=$            " puts a $ marker for the end of words/lines in cw/c$ commands
-set showmode                " show current mode
-set title                   " set title
-set visualbell              " use visual bell instead of beeping
-set noerrorbells            " no bell for error message
-set ttyfast                 " fast terminal connection
+set number                      " show linenumbers
+set relativenumber              " use relative number
+set showcmd                     " show command in bottom bar
+set cursorline                  " highlight current line
+set wildmenu                    " visual autocomplete for command menu
+set wildmode=list:longest,full  " list all match, complete till longest common string, then complete the next full match
+set lazyredraw                  " redraw only when we need to
+set showmatch                   " highlight matching bracklets
+set wrap                        " wrap text inside window
+" set textwidth=79                " max width to insert
+set textwidth=0                 " disable auto break to new line
+set formatoptions=qr1           " automatic format
+                                " q = format comment with "gq"
+                                " r = automatically insert comment leader after <ENTER> in INSERT mode
+                                " 1 = don't break line after one-letter word
+set colorcolumn=80,120,150      " highlighted columns
+set ruler                       " line and column of current cursor
+set scrolloff=3                 " min lines above and below cursor
+set fillchars+=stl:\ ,stlnc:\   " fill statusline and vertical separators
+                                " stl fill statusline current window
+                                " stlnc fill statusline of non-current windows
+set laststatus=2                " always show statusline
+set guioptions-=T               " remove toolbar
+set guioptions-=r               " removes right hand scroll bar
+set guioptions-=L               " removes left hand scroll bar (when there's vertically split window
+set cpoptions+=$                " puts a $ marker for the end of words/lines in cw/c$ commands
+set showmode                    " show current mode
+set title                       " set title
+set visualbell                  " use visual bell instead of beeping
+set noerrorbells                " no bell for error message
+set ttyfast                     " fast terminal connection
+" }}}
+" Buffer {{{
+set hidden  " hide the buffer when it's abandoned
+set confirm " ask to save buffers on exit
+" " Open new empty buffer
+" nmap <leader>T :enew<cr>
+" " Next buffer
+" nmap <leader>l :bnext<cr>
+" " Previous buffer
+" nmap <leader>h :bprevious<cr>
+" " Close current buffer and move to previous one
+" nmap <leader>bq :bp <bar> bd #<cr>
+" " Show all open buffers and their status
+" nmap <leader>bl :ls<cr>
 " }}}
 " Searching {{{
 " set "very magic" mode. All chars in pattern beside 0-9a-zA-Z_ have special meaning
@@ -188,7 +217,7 @@ set foldnestmax=5       " nested fold max
 nnoremap <space> za
 set foldmethod=indent
 " set foldlevel=0
-set modelines=0
+set modelines=1
 " }}}
 " Movement {{{
 " move vertically by visual line
@@ -248,7 +277,7 @@ set undodir=$HOME/.vim/tmp/undo         " where to store undo
 set writebackup
 set undolevels=1000
 set undofile
-au FocusLost * :wa  " write all buffers on focus lost
+au FocusLost * :wa                      " write all buffers on focus lost
 " }}}
 " Autogroups {{{
 augroup configgroup
@@ -327,28 +356,63 @@ else
 endif
 " }}}
 " Powerline {{{
-set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+" let g:powerline_pycmd = 'py3'
+" set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+" }}}
+" vim-airline {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " }}}
 " CtrlP {{{
-" let g:ctrlp_switch_buffer = 0
-" let g:ctrlp_working_path_mode = 0
-" let g:ctrlp_show_hidden = 1
-" set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class  " Linux/MacOSX
-" set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class    " Windows ('noshellslash')
-" let g:ctrlp_custom_ignore = {
-"             \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components|cache|log|logs|generation|page_cache|session|composer_home|view_preprocessed|dist)$',
-"             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
-"             \ }
-" let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
-" " let g:ctrlp_lazy_update = 1
-" nnoremap <leader>. :CtrlPTag<cr>
+" let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class  " Linux/MacOSX
+set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class    " Windows ('noshellslash')
+let g:ctrlp_custom_ignore = {
+            \ 'dir':	'\v[\/](\.(git|hg|svn|idea|sass-cache|tmp)|node_modules|bower_components|cache|log|logs|generation|page_cache|session|composer_home|view_preprocessed|dist)$',
+            \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
+            \ }
+" let g:ctrlp_lazy_update = 1
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>bb :CtrlPBuffer<cr>
+nnoremap <leader>bm :CtrlPMixed<cr>
+nnoremap <leader>bs :CtrlPMRU<cr>
+if executable('rg')
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob "!.git/*" --no-ignore --hidden --fixed-strings'
+    " let g:ctrlp_user_command = 'rg %s --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=never'
+    let g:ctrlp_use_caching = 0
+elseif executable('ag')
+    let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
+endif
+" }}}
+" jeetsukumaran/vim-buffergator {{{
+" Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'R'
+" I want my own keymappings...
+let g:buffergator_suppress_keymaps = 1
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+" Go to the previous buffer open
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+" Go to the next buffer open
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
+" View the entire list of buffers open
+nmap <leader>bl :BuffergatorOpen<cr>
+" Shared bindings from Solution #1 from earlier
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
 " }}}
 " NERDTree {{{
 " ctrl+n to toggle NERDTree
-map <c-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 " ignore files and folders
 let g:NERDTreeIgnore = ['\.git$', '\.idea$', '\~$']
-let g:NERDTreeQuitOnOpen = 1    " close on open
+" let g:NERDTreeQuitOnOpen = 1    " close on open
 let g:NERDTreeShowHidden = 1    " show hidden files
 let g:NERDTreeWinPos = "left"  " tree on the right
 let g:NERDTreeWinSize = 30      " window size
@@ -366,6 +430,14 @@ endif
 " "             \ "gentoo-metadata": "xml" }
 " let g:syntastic_filetype_map = {}
 " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " }}}
 " EasyMotion {{{
 " map <Leader> <Plug>(easymotion-prefix)
@@ -475,6 +547,20 @@ endif
 " rking/ag.vim {{{
 " " open ag.vim
 " nnoremap <leader>a :Ag
+" }}}
+" FZF {{{
+" " --column: Show column number
+" " --line-number: Show line number
+" " --no-heading: Do not show file headings in results
+" " --fixed-strings: Search term as a literal string
+" " --ignore-case: Case insensitive search
+" " --no-ignore: Do not respect .gitignore, etc...
+" " --hidden: Search hidden files and folders
+" " --follow: Follow symlinks
+" " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" " --color: Search color options
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+" nnoremap <c-p> :Files<cr>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

@@ -15,3 +15,4 @@ stow tmux
 stow other
 vim +PluginInstall +qall
 ```
+
