@@ -18,28 +18,30 @@ Plugin 'airblade/vim-gitgutter'
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'chrishunt/color-schemes'
-" Plugin 'croaker/mustang-vim'
+Plugin 'chrishunt/color-schemes'
+Plugin 'croaker/mustang-vim'
 " Plugin 'ervandew/supertab'
 " Plugin 'garbas/vim-snipmate'
-" Plugin 'godlygeek/tabular'
-" Plugin 'honza/vim-snippets'
-" Plugin 'hukl/Smyck-Color-Scheme'
+Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
+Plugin 'hukl/Smyck-Color-Scheme'
 " Plugin 'joonty/vim-sauce'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'majutsushi/tagbar'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'majutsushi/tagbar'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'MattesGroeger/vim-bookmarks'
 " Plugin 'mattn/emmet-vim'
 "Plugin 'rking/ag.vim'
 " Plugin 'pangloss/vim-javascript'
 "Plugin 'Raimondi/delimitMate'
 "Plugin 'roblillack/vim-bufferlist'
 Plugin 'scrooloose/syntastic'
-"Plugin 'StanAngeloff/php.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'rayburgemeestre/phpfolding.vim'
+" Plugin '2072/PHP-Indenting-for-VIm'
+Plugin '2072/vim-syntax-for-PHP'
 " Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'tomasr/molokai'
 " Plugin 'tomtom/tlib_vim'
@@ -48,21 +50,35 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-repeat'
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " Plugin 'docunext/closetag.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 "Plugin 'maksimr/vim-jsbeautify'
 "Plugin 'einars/js-beautify'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'wesQ3/vim-windowswap'
-"Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'stephpy/vim-php-cs-fixer'
 "Plugin 'sjl/gundo.vim'
 Plugin 'sjl/badwolf'
 " Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'junegunn/fzf'
 " Plugin 'junegunn/fzf.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'tpope/vim-obsession'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'roxma/nvim-completion-manager'
+Plugin 'phpactor/phpactor'
+Plugin 'roxma/ncm-phpactor'
+Plugin 'sirver/ultisnips'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'adoy/vim-php-refactoring-toolbox'
+" joonty/vdebug
+" tobyS/vmustache
+" tobyS/pdv
 
 " }}}
 " Vundle Post-Setup {{{
@@ -95,7 +111,8 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 " edit zshrc bindings
 nnoremap <leader>ez :vsp ~/.zshrc<cr>
 " save session
-" nnoremap <leader>s :mksession<cr>
+" nnoremap <leader>s :Obsession ~/.vim/session/<cr>
+silent execute '!mkdir -p $HOME/.vim/session'
 " }}}
 " Colors {{{
 " if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -197,10 +214,10 @@ set confirm " ask to save buffers on exit
 " }}}
 " Searching {{{
 " set "very magic" mode. All chars in pattern beside 0-9a-zA-Z_ have special meaning
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 " turn off search highlight
-nnoremap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader>/ :nohlsearch<cr>
 " nnoremap § :nohlsearch<cr>
 nnoremap <leader><space> :noh<cr>
 set ignorecase  " ignore case while search
@@ -280,35 +297,35 @@ set undofile
 au FocusLost * :wa                      " write all buffers on focus lost
 " }}}
 " Autogroups {{{
-augroup configgroup
-  autocmd!
-  autocmd VimEnter * highlight clear SignColumn
-  " autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-  "   \:call <SID>StripTrailingWhitespaces()
-  autocmd FileType java setlocal noexpandtab
-  autocmd FileType java setlocal list
-  autocmd FileType java setlocal listchars=tab:+\ ,eol:-
-  autocmd FileType java setlocal formatprg=par\ -w80\ -T4
-  autocmd FileType php setlocal expandtab
-  autocmd FileType php setlocal list
-  autocmd FileType php setlocal listchars=tab:+\ ,eol:-
-  autocmd FileType php setlocal formatprg=par\ -w80\ -T4
-  autocmd FileType javascript setlocal tabstop=2
-  autocmd FileType javascript setlocal tabstop=2
-  autocmd FileType javascript setlocal shiftwidth=2
-  autocmd FileType ruby setlocal softtabstop=2
-  autocmd FileType ruby setlocal shiftwidth=2
-  autocmd FileType ruby setlocal softtabstop=2
-  autocmd FileType ruby setlocal commentstring=#\ %s
-  autocmd FileType python setlocal commentstring=#\ %s
-  autocmd BufEnter *.cls setlocal filetype=java
-  autocmd BufEnter *.zsh-theme setlocal filetype=zsh
-  autocmd BufEnter Makefile setlocal noexpandtab
-  autocmd BufEnter *.sh setlocal tabstop=2
-  autocmd BufEnter *.sh setlocal shiftwidth=2
-  autocmd BufEnter *.sh setlocal softtabstop=2
-  autocmd FileType apache set commentstring=#\ %s
-augroup END
+" augroup configgroup
+"   autocmd!
+"   autocmd VimEnter * highlight clear SignColumn
+"   " autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
+"   "   \:call <SID>StripTrailingWhitespaces()
+"   autocmd FileType java setlocal noexpandtab
+"   autocmd FileType java setlocal list
+"   autocmd FileType java setlocal listchars=tab:+\ ,eol:-
+"   autocmd FileType java setlocal formatprg=par\ -w80\ -T4
+"   autocmd FileType php setlocal expandtab
+"   autocmd FileType php setlocal list
+"   autocmd FileType php setlocal listchars=tab:+\ ,eol:-
+"   autocmd FileType php setlocal formatprg=par\ -w80\ -T4
+"   autocmd FileType javascript setlocal tabstop=2
+"   autocmd FileType javascript setlocal tabstop=2
+"   autocmd FileType javascript setlocal shiftwidth=2
+"   autocmd FileType ruby setlocal softtabstop=2
+"   autocmd FileType ruby setlocal shiftwidth=2
+"   autocmd FileType ruby setlocal softtabstop=2
+"   autocmd FileType ruby setlocal commentstring=#\ %s
+"   autocmd FileType python setlocal commentstring=#\ %s
+"   autocmd BufEnter *.cls setlocal filetype=java
+"   autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+"   autocmd BufEnter Makefile setlocal noexpandtab
+"   autocmd BufEnter *.sh setlocal tabstop=2
+"   autocmd BufEnter *.sh setlocal shiftwidth=2
+"   autocmd BufEnter *.sh setlocal softtabstop=2
+"   autocmd FileType apache set commentstring=#\ %s
+" augroup END
 " }}}
 " Custom funtions {{{
 " toggle between number and relativenumber
@@ -383,14 +400,15 @@ nnoremap <leader>bm :CtrlPMixed<cr>
 nnoremap <leader>bs :CtrlPMRU<cr>
 if executable('rg')
     set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob "!.git/*" --no-ignore --hidden --fixed-strings'
+    let g:ctrlp_user_command = "rg --files --no-ignore --hidden --follow --glob '!.git/*'"
+    " let g:ctrlp_user_command = 'rg %s --files --color=never --glob "!.git/*" --no-ignore --hidden --fixed-strings'
     " let g:ctrlp_user_command = 'rg %s --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=never'
     let g:ctrlp_use_caching = 0
 elseif executable('ag')
     let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
 endif
 " }}}
-" jeetsukumaran/vim-buffergator {{{
+" vim-buffergator {{{
 " Use the right side of the screen
 let g:buffergator_viewport_split_policy = 'R'
 " I want my own keymappings...
@@ -398,18 +416,18 @@ let g:buffergator_suppress_keymaps = 1
 " Looper buffers
 "let g:buffergator_mru_cycle_loop = 1
 " Go to the previous buffer open
-nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+nmap <leader>bj :BuffergatorMruCyclePrev<cr>
 " Go to the next buffer open
-nmap <leader>kk :BuffergatorMruCycleNext<cr>
+nmap <leader>bk :BuffergatorMruCycleNext<cr>
 " View the entire list of buffers open
 nmap <leader>bl :BuffergatorOpen<cr>
 " Shared bindings from Solution #1 from earlier
-nmap <leader>T :enew<cr>
+nmap <leader>bn :enew<cr>
 nmap <leader>bq :bp <BAR> bd #<cr>
 " }}}
 " NERDTree {{{
 " ctrl+n to toggle NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<cr>
 " ignore files and folders
 let g:NERDTreeIgnore = ['\.git$', '\.idea$', '\~$']
 " let g:NERDTreeQuitOnOpen = 1    " close on open
@@ -419,8 +437,8 @@ let g:NERDTreeWinSize = 30      " window size
 let NERDTreeDirArrows = 1       " use right and down arrow for folders
 " automatically open NERDTree if there's nothing to edit
 if has('autocmd')
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    " autocmd StdinReadPre * let s:std_in=1
+    " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 " }}}
@@ -440,19 +458,20 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " }}}
 " EasyMotion {{{
-" map <Leader> <Plug>(easymotion-prefix)
-" let g:EasyMotion_do_mapping = 0
-" let g:EasyMotion_startofline = 0  " keep cursor colum when JK motion
-" let g:EasyMotion_smartcase = 1
-" nmap s <Plug>(easymotion-s)
-" map  / <Plug>(easymotion-sn)
+" map <leader> <Pug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_startofline = 0  " keep cursor colum when JK motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_prompt = '{n}>>> '
+nmap s <Plug>(easymotion-s)
+map  / <Plug>(easymotion-sn)
 " omap / <Plug>(easymotion-tn)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
-" map <Leader>l <Plug>(easymotion-lineforward)
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
-" map <Leader>h <Plug>(easymotion-linebackward)
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
 " }}}
 " php.vim {{{
 " function! PhpSyntaxOverride()
@@ -467,19 +486,19 @@ let g:syntastic_check_on_wq = 0
 " augroup END
 " }}}
 " TagBar {{{
-" nmap <F8> :TagbarToggle<CR>
+nmap <leader>t :TagbarToggle<cr>
 " let g:tagbar_left = 1
-" let g:tagbar_width = 30
-" let g:tagbar_autofocus = 1
+let g:tagbar_width = 30
+let g:tagbar_autofocus = 1
 " }}}
 " Bufferlist {{{
-" map <silent> <F2> :call BufferList()<CR>
+" map <silent> <F2> :call BufferList()<cr>
 " let g:BufferListWidth = 30
 " let g:BufferListMaxWidth = 50
 " hi BufferSelected term=reverse ctermfg=white ctermbg=red cterm=bold
 " hi BufferNormal term=NONE ctermfg=black ctermbg=darkcyan cterm=NONE
 " }}}
-" maksimr/vim-jsbeautify {{{
+" vim-jsbeautify {{{
 " autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
@@ -487,43 +506,58 @@ let g:syntastic_check_on_wq = 0
 " autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 " autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " }}}
-" stephpy/vim-php-cs-fixer {{{
-" let g:php_cs_fixer_level = "symfony"            " which level ?
-" let g:php_cs_fixer_config = "default"           " configuration
-" let g:php_cs_fixer_php_path = "php"             " Path to PHP
-" " let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-" let g:php_cs_fixer_enable_default_mapping = 1   " Enable the mapping by default (<leader>pcd)
-" let g:php_cs_fixer_dry_run = 0                  " Call command with dry-run option
-" let g:php_cs_fixer_verbose = 0                  " Return the output of command if 1, else an inline information.
+" vim-php-cs-fixer {{{
+" php-cs-fixer 2.x
+let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
+" let g:php_cs_fixer_cache = ".php_cs.cache"  " options: --cache-file
+" let g:php_cs_fixer_config_file = '.php_cs'  " options: --config
+
+let g:php_cs_fixer_php_path = "php"             " Path to PHP
+let g:php_cs_fixer_enable_default_mapping = 0   " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                  " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                  " Return the output of command if 1, else an inline information.
+" nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<cr>
+" nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<cr>
 " }}}
-" sjl/gundo.vim {{{
+" gundo.vim {{{
 " " toggle gundo
-" nnoremap <leader>u :GundoToggle<CR>
+" nnoremap <leader>u :GundoToggle<cr>
 " let g:gundo_preview_bottom = 1
 " }}}
-" Raimondi/delimitMate {{{
+" delimitMate {{{
 " let delimitMate_expand_cr = 2
 " let delimitMate_expand_space = 1
 " let delimitMate_jump_expansion = 1
 " }}}
-" docunext/closetag.vim {{{
+" closetag.vim {{{
 " autocmd FileType html,xml,xsl source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 " }}}
-" Valloric/YouCompleteMe {{{
+" YouCompleteMe {{{
 " let g:ycm_server_keep_logfiles = 1
 " let g:ycm_server_log_level = 'debug'
 " let g:ycm_server_python_interpreter = '/home/tung/.pyenv/versions/2.7.14/bin/python2.7'
 " }}}
-" wesQ3/vim-windowswap {{{
+" vim-windowswap {{{
 " let g:windowswap_map_keys = 0 "prevent default bindings
-" nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
-" nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
-" nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+" nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<cr>
+" nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<cr>
+" nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<cr>
 " }}}
 " YankRing {{{
-" nnoremap <silent> <F11> :YRShow<CR>
+" nnoremap <silent> <F11> :YRShow<cr>
 " }}}
 " vim-bookmarks {{{
+let g:bookmark_no_default_key_mappings = 1
+nmap <leader>mm <Plug>BookmarkToggle
+nmap <leader>mi <Plug>BookmarkAnnotate
+nmap <leader>ma <Plug>BookmarkShowAll
+nmap <leader>mn <Plug>BookmarkNext
+nmap <leader>mp <Plug>BookmarkPrev
+nmap <leader>mc <Plug>BookmarkClear
+nmap <leader>mx <Plug>BookmarkClearAll
+nmap <leader>mkk <Plug>BookmarkMoveUp
+nmap <leader>mjj <Plug>BookmarkMoveDown
+nmap <leader>mg <Plug>BookmarkMoveToLine
 " highlight BookmarkSign ctermbg=NONE ctermfg=160
 " highlight BookmarkLine ctermbg=194 ctermfg=NONE
 " let g:bookmark_sign = '♥'
@@ -537,14 +571,14 @@ let g:syntastic_check_on_wq = 0
 "             \ ? "\<C-Y>"
 "             \ : "<Plug>delimitMateCR"
 " }}}
-" terryma/vim-multiple-cursors {{{
+" vim-multiple-cursors {{{
 " let g:multi_cursor_use_default_mapping=0
 " let g:multi_cursor_next_key='<c-d>'
 " let g:multi_cursor_prev_key='<C-D>'
 " " let g:multi_cursor_skip_key=<c-x>
 " let g:multi_cursor_quit_key='<ESC>'
 " }}}
-" rking/ag.vim {{{
+" ag.vim {{{
 " " open ag.vim
 " nnoremap <leader>a :Ag
 " }}}
@@ -561,6 +595,74 @@ let g:syntastic_check_on_wq = 0
 " " --color: Search color options
 " command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 " nnoremap <c-p> :Files<cr>
+" }}}
+" vim-startify {{{
+let g:startify_bookmarks = [
+            \ {'cv': '~/.vimrc'},
+            \ {'cz': '~/.zshrc'},
+            \ ]
+let g:startify_commands = [
+            \ {'u': ':PluginUpdate'},
+            \ ]
+let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc',
+            \ 'bundle/.*/doc',
+            \ ]
+let g:startify_fortune_use_unicode = 1
+let g:startify_session_persistence = 1
+" }}}
+" vim-ripgrep {{{
+nnoremap <leader>f :Rg<space>
+let g:rg_derive_root = 1
+" }}}
+" tabular {{{
+if exists(":Tabularize")
+    nmap <leader>a :Tabularize<space>/
+    vmap <leader>a :Tabularize<space>/
+    nmap <leader>a= :Tabularize /=<cr>
+    vmap <leader>a= :Tabularize /=<cr>
+    nmap <leader>a: :Tabularize /:\zs<cr>
+    vmap <leader>a: :Tabularize /:\zs<cr>
+endif
+" }}}
+" editorconfig-vim {{{
+let g:EditorConfig_exclude_patterns = [
+            \ 'fugitive://.*',
+            \ 'scp://.*',
+            \ ]
+" }}}
+" rainbow_parentheses.vim {{{
+if exists(":RainbowParenthesesToggle")
+    au VimEnter * :RainbowParenthesesToggle
+    au Syntax * :RainbowParenthesesLoadRound
+    au Syntax * :RainbowParenthesesLoadSquare
+    au Syntax * :RainbowParenthesesLoadBraces
+    au Syntax * :RainbowParenthesesLoadChevrons
+endif
+" }}}
+" vim-php-refactoring-toolbox {{{
+let g:vim_php_refactoring_use_default_mapping = 0
+" let g:vim_php_refactoring_auto_validate_sg = 1
+" let g:vim_php_refactoring_auto_validate_rename = 1
+" let g:vim_php_refactoring_auto_validate_visibility = 1
+" let g:vim_php_refactoring_default_property_visibility = 'private'
+" let g:vim_php_refactoring_default_method_visibility = 'private'
+let g:vim_php_refactoring_make_setter_fluent = 1
+
+nnoremap <leader>rlv :call PhpRenameLocalVariable()<cr>
+nnoremap <leader>rcv :call PhpRenameClassVariable()<cr>
+nnoremap <leader>rm :call PhpRenameMethod()<cr>
+nnoremap <leader>reu :call PhpExtractUse()<cr>
+vnoremap <leader>rec :call PhpExtractConst()<cr>
+nnoremap <leader>rep :call PhpExtractClassProperty()<cr>
+vnoremap <leader>rem :call PhpExtractMethod()<cr>
+nnoremap <leader>rnp :call PhpCreateProperty()<cr>
+nnoremap <leader>rdu :call PhpDetectUnusedUseStatements()<cr>
+vnoremap <leader>r== :call PhpAlignAssigns()<cr>
+nnoremap <leader>rsg :call PhpCreateSettersAndGetters()<cr>
+nnoremap <leader>rcog :call PhpCreateGetters()<cr>
+nnoremap <leader>rda :call PhpDocAll()<cr>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
