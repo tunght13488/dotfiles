@@ -79,6 +79,8 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 " joonty/vdebug
 " tobyS/vmustache
 " tobyS/pdv
+Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'https://github.com/davisdude/vim-love-docs/tree/build'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -663,6 +665,15 @@ vnoremap <leader>r== :call PhpAlignAssigns()<cr>
 nnoremap <leader>rsg :call PhpCreateSettersAndGetters()<cr>
 nnoremap <leader>rcog :call PhpCreateGetters()<cr>
 nnoremap <leader>rda :call PhpDocAll()<cr>
+" }}}
+" vim-tmux-navigator {{{
+let g:tmux_navigator_disable_when_zoomed = 1
+" }}}
+" ultisnips {{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
