@@ -1,103 +1,87 @@
+set nocompatible    " be iMproved
 " Vundle Pre-Setup {{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 " }}}
 " Vundle Plugins {{{
 
-" Plugin '29decibel/codeschool-vim-theme'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'chrishunt/color-schemes'
-Plugin 'croaker/mustang-vim'
-" Plugin 'ervandew/supertab'
-" Plugin 'garbas/vim-snipmate'
-Plugin 'godlygeek/tabular'
-Plugin 'honza/vim-snippets'
-Plugin 'hukl/Smyck-Color-Scheme'
-" Plugin 'joonty/vim-sauce'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'majutsushi/tagbar'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'MattesGroeger/vim-bookmarks'
-" Plugin 'mattn/emmet-vim'
-"Plugin 'rking/ag.vim'
-" Plugin 'pangloss/vim-javascript'
-"Plugin 'Raimondi/delimitMate'
-"Plugin 'roblillack/vim-bufferlist'
-Plugin 'scrooloose/syntastic'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'rayburgemeestre/phpfolding.vim'
-" Plugin '2072/PHP-Indenting-for-VIm'
-Plugin '2072/vim-syntax-for-PHP'
-" Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'tomasr/molokai'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-markdown'
-"Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-" Plugin 'docunext/closetag.vim'
-Plugin 'vim-scripts/The-NERD-tree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'editorconfig/editorconfig-vim'
-"Plugin 'maksimr/vim-jsbeautify'
-"Plugin 'einars/js-beautify'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'wesQ3/vim-windowswap'
-Plugin 'stephpy/vim-php-cs-fixer'
-"Plugin 'sjl/gundo.vim'
-Plugin 'sjl/badwolf'
-" Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'junegunn/fzf'
-" Plugin 'junegunn/fzf.vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'tpope/vim-obsession'
-Plugin 'jremmen/vim-ripgrep'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'roxma/nvim-completion-manager'
-Plugin 'phpactor/phpactor'
-Plugin 'roxma/ncm-phpactor'
-Plugin 'sirver/ultisnips'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'adoy/vim-php-refactoring-toolbox'
+" Plug '29decibel/codeschool-vim-theme'
+Plug 'airblade/vim-gitgutter'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chrishunt/color-schemes'
+Plug 'croaker/mustang-vim'
+" Plug 'ervandew/supertab'
+" Plug 'garbas/vim-snipmate'
+Plug 'godlygeek/tabular'
+Plug 'hukl/Smyck-Color-Scheme'
+" Plug 'joonty/vim-sauce'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'easymotion/vim-easymotion'
+Plug 'majutsushi/tagbar'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'mattn/emmet-vim'
+"Plug 'rking/ag.vim'
+" Plug 'pangloss/vim-javascript'
+"Plug 'Raimondi/delimitMate'
+"Plug 'roblillack/vim-bufferlist'
+Plug 'scrooloose/syntastic'
+Plug 'StanAngeloff/php.vim'
+Plug 'rayburgemeestre/phpfolding.vim'
+" Plug '2072/PHP-Indenting-for-VIm'
+Plug '2072/vim-syntax-for-PHP'
+" Plug 'terryma/vim-multiple-cursors'
+"Plug 'tomasr/molokai'
+" Plug 'tomtom/tlib_vim'
+" Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-markdown'
+"Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+" Plug 'docunext/closetag.vim'
+Plug 'vim-scripts/The-NERD-tree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'editorconfig/editorconfig-vim'
+"Plug 'maksimr/vim-jsbeautify'
+"Plug 'einars/js-beautify'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'wesQ3/vim-windowswap'
+Plug 'stephpy/vim-php-cs-fixer'
+"Plug 'sjl/gundo.vim'
+Plug 'sjl/badwolf'
+" Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-obsession'
+Plug 'jremmen/vim-ripgrep'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'roxma/nvim-completion-manager'
+Plug 'phpactor/phpactor'
+Plug 'roxma/ncm-phpactor'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'adoy/vim-php-refactoring-toolbox'
 " joonty/vdebug
 " tobyS/vmustache
 " tobyS/pdv
-Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'https://github.com/davisdude/vim-love-docs/tree/build'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'https://github.com/davisdude/vim-love-docs/tree/build'
 
 " }}}
 " Vundle Post-Setup {{{
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 " }}}
 " Leader {{{
 let mapleader=","   " leader is comma
@@ -674,6 +658,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+" }}}
+" roxma/nvim-completion-manager {{{
+inoremap <expr> <cr> (pumvisible() ? "\<c-y>\<cr>" : "\<cr>")
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
