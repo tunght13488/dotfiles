@@ -1,1 +1,0 @@
-../bundle/color-schemes/railscasts/base16-railscasts.vim
