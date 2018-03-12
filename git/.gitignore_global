@@ -134,3 +134,7 @@ adminer.php
 
 # VS Code
 .vscode
+
+# Vim ctags
+tags.lock
+tags.temp
