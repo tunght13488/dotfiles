@@ -15,12 +15,12 @@ Plug 'airblade/vim-gitgutter'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'chrishunt/color-schemes'
-Plug 'croaker/mustang-vim'
+" Plug 'chrishunt/color-schemes'
+" Plug 'croaker/mustang-vim'
 " Plug 'ervandew/supertab'
 " Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
-Plug 'hukl/Smyck-Color-Scheme'
+" Plug 'hukl/Smyck-Color-Scheme'
 " Plug 'joonty/vim-sauce'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
@@ -31,14 +31,13 @@ Plug 'MattesGroeger/vim-bookmarks'
 " Plug 'mattn/emmet-vim'
 "Plug 'rking/ag.vim'
 " Plug 'pangloss/vim-javascript'
-"Plug 'Raimondi/delimitMate'
 "Plug 'roblillack/vim-bufferlist'
 Plug 'scrooloose/syntastic'
 Plug 'StanAngeloff/php.vim'
 Plug 'rayburgemeestre/phpfolding.vim'
 " Plug '2072/PHP-Indenting-for-VIm'
 Plug '2072/vim-syntax-for-PHP'
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 "Plug 'tomasr/molokai'
 " Plug 'tomtom/tlib_vim'
 " Plug 'tpope/vim-abolish'
@@ -66,7 +65,12 @@ Plug 'tpope/vim-obsession'
 Plug 'jremmen/vim-ripgrep'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'roxma/nvim-completion-manager'
+if has('nvim')
+    Plug 'roxma/nvim-completion-manager'
+    " Plug 'roxma/vim-hug-neovim-rpc'
+else
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
+endif
 Plug 'phpactor/phpactor'
 Plug 'roxma/ncm-phpactor'
 Plug 'sirver/ultisnips'
@@ -78,6 +82,18 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 " tobyS/pdv
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'https://github.com/davisdude/vim-love-docs/tree/build'
+" Plug 'tpope/vim-endwise'
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-expand-region'
+Plug 'gregsexton/matchtag'
+Plug 'chriskempson/base16-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'jdkanani/vim-material-theme'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -101,15 +117,22 @@ nnoremap <leader>ez :vsp ~/.zshrc<cr>
 silent execute '!mkdir -p $HOME/.vim/session'
 " }}}
 " Colors {{{
+syntax enable   " enable syntax processing
 " if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
 "     set t_Co=256
 " endif
-" set background=dark
+set background=dark
+set termguicolors
+" let base16colorspace=256  " Access colors present in 256 colorspace
 
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 " colorscheme molokai
-colorscheme badwolf
+" colorscheme badwolf
+" colorscheme base16-default-dark
+" colorscheme jellybeans
 " colorscheme solarized
-syntax enable   " enable syntax processing
+" colorscheme material-theme
 
 " highlight clear SignColumn
 " highlight VertSplit    ctermbg=236
@@ -370,7 +393,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " }}}
 " CtrlP {{{
 " let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = ''
 let g:ctrlp_show_hidden = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class  " Linux/MacOSX
 set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*.so,*.swp,*.zip,*.bak,*.pyc,*.class    " Windows ('noshellslash')
@@ -379,7 +402,8 @@ let g:ctrlp_custom_ignore = {
             \ 'file':	'\v\.(exe|so|dll|DS_Store)$',
             \ }
 " let g:ctrlp_lazy_update = 1
-nnoremap <leader>p :CtrlP<cr>
+let g:ctrlp_map = '<leader>p'
+" nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>bb :CtrlPBuffer<cr>
 nnoremap <leader>bm :CtrlPMixed<cr>
@@ -510,11 +534,6 @@ let g:php_cs_fixer_verbose = 0                  " Return the output of command i
 " nnoremap <leader>u :GundoToggle<cr>
 " let g:gundo_preview_bottom = 1
 " }}}
-" delimitMate {{{
-" let delimitMate_expand_cr = 2
-" let delimitMate_expand_space = 1
-" let delimitMate_jump_expansion = 1
-" }}}
 " closetag.vim {{{
 " autocmd FileType html,xml,xsl source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 " }}}
@@ -550,19 +569,12 @@ nmap <leader>mg <Plug>BookmarkMoveToLine
 " let g:bookmark_highlight_lines=1
 " let g:bookmark_auto_close=1
 " }}}
-" delimitMate {{{
-" let g:delimitMate_expand_cr=1
-" let g:delimitMate_expand_space=1
-" imap <expr> <cr> pumvisible()
-"             \ ? "\<C-Y>"
-"             \ : "<Plug>delimitMateCR"
-" }}}
 " vim-multiple-cursors {{{
-" let g:multi_cursor_use_default_mapping=0
-" let g:multi_cursor_next_key='<c-d>'
-" let g:multi_cursor_prev_key='<C-D>'
-" " let g:multi_cursor_skip_key=<c-x>
-" let g:multi_cursor_quit_key='<ESC>'
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<c-n>'
+let g:multi_cursor_prev_key='<c-p>'
+let g:multi_cursor_skip_key='<c-x>'
+let g:multi_cursor_quit_key='<esc>'
 " }}}
 " ag.vim {{{
 " " open ag.vim
@@ -588,7 +600,7 @@ let g:startify_bookmarks = [
             \ {'cz': '~/.zshrc'},
             \ ]
 let g:startify_commands = [
-            \ {'u': ':PluginUpdate'},
+            \ {'u': ':PlugUpdate'},
             \ ]
 let g:startify_skiplist = [
             \ 'COMMIT_EDITMSG',
@@ -654,13 +666,30 @@ nnoremap <leader>rda :call PhpDocAll()<cr>
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 " ultisnips {{{
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-space>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
-" roxma/nvim-completion-manager {{{
+" nvim-completion-manager {{{
 inoremap <expr> <cr> (pumvisible() ? "\<c-y>\<cr>" : "\<cr>")
+" }}}
+" vim-indent-guides {{{
+let g:indent_guides_enable_on_vim_startup = 1
+" }}}
+" delimitMate {{{
+" let delimitMate_expand_cr = 2
+" let delimitMate_expand_space = 1
+" let delimitMate_jump_expansion = 1
+" let g:delimitMate_expand_cr=1
+" let g:delimitMate_expand_space=1
+" imap <expr> <cr> pumvisible()
+"             \ ? "\<C-Y>"
+"             \ : "<Plug>delimitMateCR"
+" }}}
+" vim-expand-region {{{
+map K <Plug>(expand_region_expand)
+map J <Plug>(expand_region_shrink)
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
