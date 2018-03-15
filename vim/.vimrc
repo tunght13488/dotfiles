@@ -96,6 +96,7 @@ Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'blueyed/vim-diminactive'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -133,11 +134,11 @@ endif
 syntax on   " enable syntax processing
 " let base16colorspace=256  " Access colors present in 256 colorspace
 
-colorscheme onedark
-let g:onedark_terminal_italics=1
+" colorscheme onedark
+" let g:onedark_terminal_italics=1
 " let g:gruvbox_contrast_dark = 'hard'
 " colorscheme gruvbox
-" colorscheme molokai
+colorscheme molokai
 " colorscheme badwolf
 " colorscheme base16-default-dark
 " colorscheme jellybeans
@@ -700,6 +701,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 " vim-expand-region {{{
 map K <Plug>(expand_region_expand)
 map J <Plug>(expand_region_shrink)
+" }}}
+" vim-diminactive {{{
+let g:diminactive_enable_focus = 1
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

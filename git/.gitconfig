@@ -108,7 +108,7 @@
 	ignorecase = false
 	autocrlf = input
 	#pager = less -x1,5
-	editor = vim
+	editor = nvim
 
 [pager]
 	log  = diff-so-fancy | less --tabs=1,5 -RFX
