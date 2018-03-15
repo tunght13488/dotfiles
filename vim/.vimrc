@@ -95,6 +95,7 @@ Plug 'jdkanani/vim-material-theme'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " }}}
 " Vundle Post-Setup {{{
