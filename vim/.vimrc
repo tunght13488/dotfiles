@@ -94,6 +94,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'jdkanani/vim-material-theme'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -117,16 +118,24 @@ nnoremap <leader>ez :vsp ~/.zshrc<cr>
 silent execute '!mkdir -p $HOME/.vim/session'
 " }}}
 " Colors {{{
-syntax enable   " enable syntax processing
 " if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
 "     set t_Co=256
 " endif
 set background=dark
-set termguicolors
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+syntax on   " enable syntax processing
 " let base16colorspace=256  " Access colors present in 256 colorspace
 
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+colorscheme onedark
+let g:onedark_terminal_italics=1
+" let g:gruvbox_contrast_dark = 'hard'
+" colorscheme gruvbox
 " colorscheme molokai
 " colorscheme badwolf
 " colorscheme base16-default-dark
