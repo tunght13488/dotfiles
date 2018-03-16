@@ -97,6 +97,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'blueyed/vim-diminactive'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -123,31 +124,35 @@ silent execute '!mkdir -p $HOME/.vim/session'
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
-set background=dark
+" set background=dark
 if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     if (has("termguicolors"))
-        set termguicolors
+        " set termguicolors
     endif
 endif
 " let base16colorspace=256  " Access colors present in 256 colorspace
 
-" colorscheme onedark
+colorscheme onedark
 " let g:onedark_terminal_italics=1
 " let g:gruvbox_contrast_dark = 'hard'
 " colorscheme gruvbox
 " colorscheme molokai
-colorscheme badwolf
+" colorscheme badwolf
 " colorscheme base16-default-dark
 " colorscheme jellybeans
 " colorscheme solarized
 " colorscheme material-theme
 " colorscheme palenight
+" colorscheme nord
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_uniform_status_lines = 1
 syntax on   " enable syntax processing
 
 " palenight
-" highlight ColorColumn ctermbg=236 guibg=#3b414b
+highlight ColorColumn ctermbg=238 guibg=#2C323C
 " highlight clear SignColumn
 " highlight VertSplit    ctermbg=236
 " highlight ColorColumn  ctermbg=237
