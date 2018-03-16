@@ -34,7 +34,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 "Plug 'roblillack/vim-bufferlist'
 Plug 'scrooloose/syntastic'
 Plug 'StanAngeloff/php.vim'
-Plug 'rayburgemeestre/phpfolding.vim'
+" Plug 'rayburgemeestre/phpfolding.vim'
 " Plug '2072/PHP-Indenting-for-VIm'
 Plug '2072/vim-syntax-for-PHP'
 Plug 'terryma/vim-multiple-cursors'
@@ -712,6 +712,12 @@ map J <Plug>(expand_region_shrink)
 " }}}
 " vim-diminactive {{{
 let g:diminactive_enable_focus = 1
+" }}}
+" phpfolding.vim {{{
+" let g:DisableAutoPHPFolding = 1
+" map <F5> <Esc>:EnableFastPHPFolds<Cr>
+" map <F6> <Esc>:EnablePHPFolds<Cr>
+" map <F7> <Esc>:DisablePHPFolds<Cr>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
