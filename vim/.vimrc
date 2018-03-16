@@ -52,7 +52,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'maksimr/vim-jsbeautify'
 "Plug 'einars/js-beautify'
-" Plug 'Valloric/YouCompleteMe'
 " Plug 'wesQ3/vim-windowswap'
 Plug 'stephpy/vim-php-cs-fixer'
 "Plug 'sjl/gundo.vim'
@@ -69,7 +68,7 @@ if has('nvim')
     Plug 'roxma/nvim-completion-manager'
     " Plug 'roxma/vim-hug-neovim-rpc'
 else
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
+    " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
 endif
 Plug 'phpactor/phpactor'
 Plug 'roxma/ncm-phpactor'
@@ -97,6 +96,7 @@ Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'blueyed/vim-diminactive'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " }}}
 " Vundle Post-Setup {{{
@@ -120,31 +120,34 @@ nnoremap <leader>ez :vsp ~/.zshrc<cr>
 silent execute '!mkdir -p $HOME/.vim/session'
 " }}}
 " Colors {{{
-" if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-"     set t_Co=256
-" endif
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+    set t_Co=256
+endif
 set background=dark
 if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
-if (has("termguicolors"))
-  set termguicolors
-endif
-syntax on   " enable syntax processing
 " let base16colorspace=256  " Access colors present in 256 colorspace
 
 " colorscheme onedark
 " let g:onedark_terminal_italics=1
 " let g:gruvbox_contrast_dark = 'hard'
 " colorscheme gruvbox
-colorscheme molokai
-" colorscheme badwolf
+" colorscheme molokai
+colorscheme badwolf
 " colorscheme base16-default-dark
 " colorscheme jellybeans
 " colorscheme solarized
 " colorscheme material-theme
+" colorscheme palenight
+syntax on   " enable syntax processing
 
+" palenight
+" highlight ColorColumn ctermbg=236 guibg=#3b414b
 " highlight clear SignColumn
 " highlight VertSplit    ctermbg=236
 " highlight ColorColumn  ctermbg=237
