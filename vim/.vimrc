@@ -691,7 +691,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 " nvim-completion-manager {{{
-inoremap <expr> <cr> (pumvisible() ? "\<c-y>\<cr>" : "\<cr>")
+" inoremap <expr> <cr> (pumvisible() ? "\<c-y>\<cr>" : "\<cr>")
 " }}}
 " vim-indent-guides {{{
 let g:indent_guides_enable_on_vim_startup = 1
