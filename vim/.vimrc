@@ -81,7 +81,7 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 " tobyS/pdv
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'https://github.com/davisdude/vim-love-docs/tree/build'
-" Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
