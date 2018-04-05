@@ -65,8 +65,8 @@
 	lga         = log --color --graph --pretty=format:'%C(yellow)%h%Creset %C(red bold)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	ll          = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	lnc         = log --pretty=format:"%h\\ %s\\ [%cn]"
-	lol         = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola        = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lol         = log --oneline --decorate --graph
+	lola        = log --oneline --decorate --graph --all
 	ls          = ls-files
 	lt          = describe --tags --abbrev=0
 	ours        = "!f() { git checkout --ours $@ && git add $@; }; f"

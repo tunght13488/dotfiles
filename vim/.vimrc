@@ -80,7 +80,7 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 " tobyS/vmustache
 " tobyS/pdv
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'https://github.com/davisdude/vim-love-docs/tree/build'
+Plug 'davisdude/vim-love-docs', { 'branch': 'build' }
 Plug 'tpope/vim-endwise'
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
@@ -324,35 +324,37 @@ set undofile
 au FocusLost * :wa                      " write all buffers on focus lost
 " }}}
 " Autogroups {{{
-" augroup configgroup
-"   autocmd!
-"   autocmd VimEnter * highlight clear SignColumn
-"   " autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-"   "   \:call <SID>StripTrailingWhitespaces()
-"   autocmd FileType java setlocal noexpandtab
-"   autocmd FileType java setlocal list
-"   autocmd FileType java setlocal listchars=tab:+\ ,eol:-
-"   autocmd FileType java setlocal formatprg=par\ -w80\ -T4
-"   autocmd FileType php setlocal expandtab
-"   autocmd FileType php setlocal list
-"   autocmd FileType php setlocal listchars=tab:+\ ,eol:-
-"   autocmd FileType php setlocal formatprg=par\ -w80\ -T4
-"   autocmd FileType javascript setlocal tabstop=2
-"   autocmd FileType javascript setlocal tabstop=2
-"   autocmd FileType javascript setlocal shiftwidth=2
-"   autocmd FileType ruby setlocal softtabstop=2
-"   autocmd FileType ruby setlocal shiftwidth=2
-"   autocmd FileType ruby setlocal softtabstop=2
-"   autocmd FileType ruby setlocal commentstring=#\ %s
-"   autocmd FileType python setlocal commentstring=#\ %s
-"   autocmd BufEnter *.cls setlocal filetype=java
-"   autocmd BufEnter *.zsh-theme setlocal filetype=zsh
-"   autocmd BufEnter Makefile setlocal noexpandtab
-"   autocmd BufEnter *.sh setlocal tabstop=2
-"   autocmd BufEnter *.sh setlocal shiftwidth=2
-"   autocmd BufEnter *.sh setlocal softtabstop=2
-"   autocmd FileType apache set commentstring=#\ %s
-" augroup END
+augroup configgroup
+  autocmd!
+  " autocmd VimEnter * highlight clear SignColumn
+  " autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
+  "   \:call <SID>StripTrailingWhitespaces()
+  " autocmd FileType java setlocal noexpandtab
+  " autocmd FileType java setlocal list
+  " autocmd FileType java setlocal listchars=tab:+\ ,eol:-
+  " autocmd FileType java setlocal formatprg=par\ -w80\ -T4
+  " autocmd FileType php setlocal expandtab
+  " autocmd FileType php setlocal list
+  " autocmd FileType php setlocal listchars=tab:+\ ,eol:-
+  " autocmd FileType php setlocal formatprg=par\ -w80\ -T4
+  " autocmd FileType javascript setlocal tabstop=2
+  " autocmd FileType javascript setlocal tabstop=2
+  " autocmd FileType javascript setlocal shiftwidth=2
+  " autocmd FileType ruby setlocal softtabstop=2
+  " autocmd FileType ruby setlocal shiftwidth=2
+  " autocmd FileType ruby setlocal softtabstop=2
+  " autocmd FileType ruby setlocal commentstring=#\ %s
+  " autocmd FileType python setlocal commentstring=#\ %s
+  " autocmd BufEnter *.cls setlocal filetype=java
+  " autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+  " autocmd BufEnter Makefile setlocal noexpandtab
+  " autocmd BufEnter *.sh setlocal tabstop=2
+  " autocmd BufEnter *.sh setlocal shiftwidth=2
+  " autocmd BufEnter *.sh setlocal softtabstop=2
+  " autocmd FileType apache set commentstring=#\ %s
+  autocmd FileType lua setlocal softtabstop=2
+  autocmd FileType lua setlocal shiftwidth=2
+augroup END
 " }}}
 " Custom funtions {{{
 " toggle between number and relativenumber
