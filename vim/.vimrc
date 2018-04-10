@@ -69,6 +69,7 @@ if has('nvim')
     " Plug 'roxma/vim-hug-neovim-rpc'
 else
     " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
+    Plug 'maralla/completor.vim'
 endif
 Plug 'phpactor/phpactor'
 Plug 'roxma/ncm-phpactor'
