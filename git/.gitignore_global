@@ -28,6 +28,8 @@
 *.tar
 *.zip
 *.bz2
+*.xz
+*.tgz
 
 # Logs and databases #
 ######################

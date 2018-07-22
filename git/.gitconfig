@@ -190,7 +190,3 @@
 [mergetool "sublime"]
 	cmd = subl -w \"$MERGED\"
 	trustexitcode = false
-[filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
