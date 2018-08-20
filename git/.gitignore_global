@@ -151,3 +151,5 @@ tags
 tags.lock
 tags.temp
 
+# PHP-CS-Fixer
+.php_cs.cache
