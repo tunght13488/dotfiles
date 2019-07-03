@@ -154,6 +154,7 @@
 [diff]
 	algorithm = patience
 	tool = Kaleidoscope
+	submodule = log
 [difftool]
 	prompt = false
 
