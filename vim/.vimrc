@@ -73,7 +73,7 @@ else
 endif
 Plug 'phpactor/phpactor'
 Plug 'roxma/ncm-phpactor'
-Plug 'sirver/ultisnips'
+" Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'adoy/vim-php-refactoring-toolbox'
