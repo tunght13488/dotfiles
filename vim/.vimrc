@@ -65,11 +65,11 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'ludovicchabant/vim-gutentags'
 if has('nvim')
-    Plug 'roxma/nvim-completion-manager'
-    " Plug 'roxma/vim-hug-neovim-rpc'
+   "Plug 'roxma/nvim-completion-manager'
+   "" Plug 'roxma/vim-hug-neovim-rpc'
 else
-    " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
-    Plug 'maralla/completor.vim'
+   "" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer' }
+   "Plug 'maralla/completor.vim'
 endif
 Plug 'phpactor/phpactor'
 Plug 'roxma/ncm-phpactor'
