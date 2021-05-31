@@ -111,6 +111,7 @@
 	autocrlf = input
 	#pager = less -x1,5
 	editor = vim
+	askpass = git-gui--askpass
 
 [pager]
 	log  = diff-so-fancy | less --tabs=1,5 -RFX
