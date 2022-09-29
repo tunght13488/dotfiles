@@ -194,3 +194,7 @@
 [mergetool "sublime"]
 	cmd = subl -w \"$MERGED\"
 	trustexitcode = false
+[pull]
+	twohead = ort
+[checkout]
+	workers = 0

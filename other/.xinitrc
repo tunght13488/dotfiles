@@ -7,4 +7,4 @@
 # export QT_IM_MODULE=ibus
 # ibus-daemon -drx
 
-exec awesome
+# exec awesome
