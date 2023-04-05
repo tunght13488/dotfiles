@@ -35,7 +35,7 @@ let g:EasyMotion_use_smartsign_us = 1
 " map <leader>e <Plug>(easymotion-f)
 
 set NERDTree
-map <C-t> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 " let g:NERDTreeMapActivateNode = 'l'
 " let g:NERDTreeMapJumpParent = 'h'
 
