@@ -9,7 +9,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 chsh -s /bin/zsh
 
-git clone https://github.com/tunght13488/NvChad ~/.config/nvim --depth 1 && nvim
+git clone --branch rocco https://github.com/tunght13488/NvChad ~/.config/nvim --depth 1 && nvim
 
 git clone https://github.com/tunght13488/dotfiles.git $HOME/.dotfiles
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
