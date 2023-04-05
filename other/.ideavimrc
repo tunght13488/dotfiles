@@ -20,8 +20,8 @@ set ideastatusicon=enabled
 set easymotion
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
-map / <Plug>(easymotion-s)
-omap / <Plug>(easymotion-t)
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 " map n <Plug>(easymotion-next)
 " map N <Plug>(easymotion-prev)
 map <leader>j <Plug>(easymotion-j)
@@ -35,7 +35,8 @@ let g:EasyMotion_use_smartsign_us = 1
 " map <leader>e <Plug>(easymotion-f)
 
 set NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTree<CR>
+map <C-S-n> <Action>(SelectInProjectView)
 " let g:NERDTreeMapActivateNode = 'l'
 " let g:NERDTreeMapJumpParent = 'h'
 
@@ -167,8 +168,9 @@ nnoremap <leader>qa :action CloseAllEditorsButActive<CR>
 
 " map Q gq
 
-nnoremap \e :e C:\Users\tungha.t\.ideavimrc<CR>
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+" nnoremap \e :e C:\Users\tungha.t\.ideavimrc<CR>
+map \e :e ~/.ideavimrc<cr>
+map \r <Action>(IdeaVim.ReloadVimRc.reload)
 
 """ exit insert mode with jk
 inoremap jk <Esc>
