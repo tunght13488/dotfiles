@@ -89,6 +89,7 @@
 	svnr        = svn rebase
 	theirs      = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	today       = log --since=midnight --author='Ha The Tung' --oneline
+	yesterday   = log --since=yesterday.midnight --author='Ha The Tung' --oneline
 	type        = cat-file -t
 	unassume    = update-index --no-assume-unchanged
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
@@ -198,3 +199,5 @@
 	twohead = ort
 [checkout]
 	workers = 0
+[init]
+	defaultBranch = main
