@@ -30,6 +30,7 @@
 *.bz2
 *.xz
 *.tgz
+*.zst
 
 # Logs and databases #
 ######################
