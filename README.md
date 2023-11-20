@@ -8,6 +8,8 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 chsh -s /bin/zsh
+cd $ZPREZTODIR
+git clone --recurse-submodules https://github.com/belak/prezto-contrib contrib
 
 git clone --branch rocco https://github.com/tunght13488/NvChad ~/.config/nvim --depth 1 && nvim
 
