@@ -338,6 +338,16 @@
 	theirs      = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	today       = log --since=midnight --author='Ha The Tung' --oneline
 	yesterday   = log --since=yesterday.midnight --author='Ha The Tung' --oneline
+	append = town append
+	diff-parent = town diff-parent
+	hack = town hack
+	kill = town kill
+	new-pull-request = town new-pull-request
+	prepend = town prepend
+	rename-branch = town rename-branch
+	repo = town repo
+	ship = town ship
+	sync = town sync
 	# type        = cat-file -t
 	# undo        = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 	# find-merge  = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
