@@ -17,13 +17,13 @@ set idearefactormode=keep
 set ideajoin
 set ideastatusicon=enabled
 
-set easymotion
+Plug 'easymotion/vim-easymotion'
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
-map / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-" map n <Plug>(easymotion-next)
-" map N <Plug>(easymotion-prev)
+" map / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+" noremap n <Plug>(easymotion-next)
+" noremap N <Plug>(easymotion-prev)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 map <leader>l <Plug>(easymotion-lineforward)
@@ -31,34 +31,44 @@ map <leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
-" map <leader>f <Plug>(easymotion-s)
 " map <leader>e <Plug>(easymotion-f)
+map <leader>f <Plug>(easymotion-s)
+" let g:EasyMotion_override_acejump = 0
 
-set NERDTree
+Plug 'preservim/nerdtree'
 map <C-n> :NERDTree<CR>
 map <C-S-n> <Action>(SelectInProjectView)
 " let g:NERDTreeMapActivateNode = 'l'
 " let g:NERDTreeMapJumpParent = 'h'
 
-set surround
+Plug 'tpope/vim-surround'
 
-set multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
 
-set commentary
+Plug 'tpope/vim-commentary'
 autocmd FileType ideavim setlocal commentstring=\"\ %s
 
-set ReplaceWithRegister
+Plug 'vim-scripts/ReplaceWithRegister'
 
-set argtextobj
+Plug 'vim-scripts/argtextobj.vim'
 let g:argtextobj_pairs="[:],(:),<:>"
 
-set exchange
+Plug 'tommcdo/vim-exchange'
 
-set textobj-entire
+Plug 'kana/vim-textobj-entire'
 
-set highlightedyank
+Plug 'machakann/vim-highlightedyank'
 
-set textobj-indent
+Plug 'michaeljsmith/vim-indent-object'
+
+set peekaboo
+
+set quickscope
+
+set which-key
+let g:WhichKey_FontSize = 20
+
+Plug 'chrisbra/matchit'
 
 """ Idea actions -----------------------------
 nnoremap <leader>c :action Stop<CR>
@@ -148,8 +158,10 @@ nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
 
 " nnoremap <c-h> <c-w>h
 nnoremap <c-h> :action PrevSplitter<CR>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+nnoremap <c-j> :action MoveLineDown<CR>
+nnoremap <c-k> :action MoveLineUp<CR>
 " nnoremap <c-l> <c-w>l
 nnoremap <c-l> :action NextSplitter<CR>
 

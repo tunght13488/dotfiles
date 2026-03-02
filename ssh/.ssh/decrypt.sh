@@ -1,0 +1,1 @@
+gpg -d --output config config.gpg

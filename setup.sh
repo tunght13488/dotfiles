@@ -8,4 +8,5 @@ stow git
 stow vim
 stow tmux
 stow other
-vim +PlugInstall +qall
+stow ssh
+# vim +PlugInstall +qall

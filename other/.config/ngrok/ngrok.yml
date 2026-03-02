@@ -1,0 +1,8 @@
+version: "3"
+agent:
+    authtoken: auth-token-here
+endpoints:
+  - name: middleware
+    url: https://inherently-good-tarpon.ngrok-free.app
+    upstream:
+      url: middleware.local:443
