@@ -355,6 +355,7 @@
 	park = town park
 	propose = town propose
 	set-parent = town set-parent
+	continue = town continue
 	# type        = cat-file -t
 	# undo        = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 	# find-merge  = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
@@ -377,10 +378,10 @@
 	askpass = git-gui--askpass
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
-[pager]
-	log  = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
+# [pager]
+# 	log  = diff-so-fancy | less --tabs=1,5 -RFX
+# 	show = diff-so-fancy | less --tabs=1,5 -RFX
+# 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -411,7 +412,7 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 	conflictstyle = diff3
-	tool = sublime
+	tool = vscode
 [mergetool]
 	prompt = false
 	keepBackup = true
@@ -427,7 +428,7 @@
 # Diff
 [diff]
 	algorithm = patience
-	tool = Kaleidoscope
+	tool = vscode
 	submodule = log
 [difftool]
 	prompt = false
@@ -473,3 +474,7 @@
 	defaultBranch = main
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
