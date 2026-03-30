@@ -26,17 +26,21 @@ foreground = "#eeffff"
 size = 10
 
 [font.bold]
-family = "JetBrainsMono Nerd Font Mono"
+# family = "JetBrainsMono Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font Mono"
+# family = "JetBrainsMono Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font Mono"
+# family = "JetBrainsMono Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font Mono"
+# family = "JetBrainsMono Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Mono"
 style = "Regular"

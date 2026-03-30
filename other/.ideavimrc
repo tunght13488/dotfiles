@@ -3,6 +3,7 @@ let mapleader=" "
 
 """ Common settings -------------------------
 set clipboard+=unnamed
+set clipboard+=unnamedplus
 set clipboard+=ideaput
 set hlsearch
 set incsearch

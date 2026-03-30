@@ -1,2 +1,5 @@
 vim/.vim/plugged/**
 vim/.vim/autoload/**
+other/.aws/config
+ssh/.ssh/config
+.passphrase

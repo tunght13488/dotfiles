@@ -5,4 +5,4 @@ endpoints:
   - name: middleware
     url: https://inherently-good-tarpon.ngrok-free.app
     upstream:
-      url: middleware.local:443
+      url: middleware.vm.local:443
